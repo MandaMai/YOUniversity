@@ -7,18 +7,4 @@ These instructions will help you get this project running on your local machine
 
 - Fork and then clone this repository
 - Run `npm install` inside the cloned repo
-- Create a local.js file in the `src` directory
-
-`src/local.js`  
-```javascript
-
-const Config = {
-  publicKey: "YOUR_PUBLIC_API_KEY",
-  privateKey: "YOUR_PRIVATE_API_KEY"
-}
-
-export default Config
-
-```
-
-- Run `npm start`
+- Run `REACT_APP_MARVEL_PUBLIC_KEY=YOUR_KEY_HERE REACT_APP_MARVEL_PRIVATE_KEY=YOUR_KEY_HERE npm start`
