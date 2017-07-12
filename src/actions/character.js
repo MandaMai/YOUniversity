@@ -1,6 +1,5 @@
 import request from 'superagent';
 import md5 from 'md5'
-import Config from '../local'
 
 const baseUrl: string = 'http://gateway.marvel.com/v1/public/';
 
