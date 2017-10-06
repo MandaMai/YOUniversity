@@ -8,11 +8,11 @@
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.6.1",
-    "react-redux": "^5.0.5",
+    "react-redux": "^5.0.6",
     "react-scripts": "1.0.10",
-    "redux": "^3.7.1",
+    "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "superagent": "^3.5.2"
+    "superagent": "^3.6.3"
   },
   "scripts": {
     "start": "react-scripts start",
