@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 
+
 import Currentpreferences from './components/currentpreferences/currentpreferences'
 import Dashboard from './components/dashboard/dashboard'
 import Editpreferences from './components/editpreferences/editpreferences'
@@ -14,13 +15,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        eric was here
+        <Navigation />
+
+
         <Currentpreferences />
         <Dashboard />
         <Editpreferences />
         <Favorites />
         <Landing />
-        <Navigation />
         <Newuser />
       </div>
     );

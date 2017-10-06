@@ -9,12 +9,12 @@ export class Navigation extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            Marvel Character Search
+            YOUniversity
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <SearchCharacters />
+       
         </Navbar.Collapse>
       </Navbar>
     );

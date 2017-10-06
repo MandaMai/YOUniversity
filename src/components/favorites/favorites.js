@@ -9,7 +9,7 @@ class Favorites extends Component {
         
 
         return (
-            <div>Favorites</div>
+            <div>Current Preferences</div>
         )
     }
 }
