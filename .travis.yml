@@ -1,8 +1,0 @@
-language: node_js
-node_js:
-- '7'
-deploy:
-  provider: heroku
-  api_key:
-    secure: XEUVB0a/xHS/wo2xoXIC0ytEGwOpNttkxPygc6YDAKYOhGXYtkSxS0sD4FJEWPl9V9WPUSSanTmWtcGVb9TMjfLxOIkzNEJU4+iox+Md7KGf5yiiwjSl0hkTVAnNQg63nolxySRRefzafcKqAqqZK7qJ0yV4txkan/mOgBYj+ND6bSuzhtCw2yDOX8/NsbvW9WsymHNiIvO3uV51vRw13o1uWm1OTxunWKcCrczu4wBKDxMFWs1eZ1tIV+peaVRJulhP5CkaEeR1XGSF89pTqw+k6EP+VT34722vY0Eqw5JcEMGzI1fnWcjM23MRU/C5rB98RgB0gI5W1YpwXHNLciJRRex3hPogQEe0Yl3AKOW+v+zJgmb7U8e06BDmlFqpBKC+oQ+zfSSLtXPKSJGYA09zBUbVX2zMT5IqHQKnBb+Cq5m3OCQiCne2JGpinRsvbEFlmZej4GJYDn7hz3Xq//goUCd50b1hbpC2BrEpIiwTX4km83YYZgJpvhNl9vtmjkCIOx2rNXK4Em+0FGMuVRoyvmPOqorUOZAv2MdbF+QvvvfCu7VrQOVnpuSyFHCr8KJ+glWOBXGkxy1pQuXGKXrphLVBtCGyNgviev+RHufRqTsJxzR4m/D7TtKbTEjRLCXKMnH+dxVDWJ0v/VXefh85+9JKeaS/TZTtMWu1lJw=
-  app: intense-spire-55270
