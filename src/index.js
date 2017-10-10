@@ -13,7 +13,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import marvelApp from './reducers'
 
-import Test from './components/test/Test'
+import Dashboard from './components/dashboard/Dashboard'
 import TestAgain from './components/testagain/TestAgain'
 import Character from './containers/Character'
 
@@ -27,7 +27,7 @@ ReactDOM.render(
       <Router history={history}>
         <Route path="/" component={App}>
           <IndexRoute component={Character}/>
-          <Route path="test" component={Test}/>
+          <Route path="dashboard" component={Dashboard}/>
           <Route path="testagain" component={TestAgain}/>
           <Route path="/testagain/:id" component={TestAgain}/>
         </Route>
