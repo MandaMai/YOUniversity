@@ -14,7 +14,10 @@ import thunk from 'redux-thunk';
 import marvelApp from './reducers'
 
 import Dashboard from './components/dashboard/Dashboard'
-import TestAgain from './components/testagain/TestAgain'
+import EditPreferences from './components/editpreferences/EditPreferences'
+import Favorites from './components/favorites/Favorites'
+import NewUser from './components/newuser/NewUser'
+
 import Character from './containers/Character'
 
 
@@ -28,8 +31,12 @@ ReactDOM.render(
         <Route path="/" component={App}>
           <IndexRoute component={Character}/>
           <Route path="dashboard" component={Dashboard}/>
-          <Route path="testagain" component={TestAgain}/>
-          <Route path="/testagain/:id" component={TestAgain}/>
+          <Route path="editPreferences" component={EditPreferences} />
+          <Route path="favorites" component={Favorites} />
+          <Route path="newuser" component={NewUser}/>
+          {/* <Route path="/testagain/:id" component={TestAgain}/> */}
+         
+          
         </Route>
       </Router>
     </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class TestAgain extends Component {
+class NewUser extends Component {
 
   render() {
 
@@ -9,7 +9,7 @@ class TestAgain extends Component {
     
     return (
       <div>
-        this is another eric
+        this is the new User setup page
         <br/>
         {stuff}
       </div>
@@ -17,4 +17,4 @@ class TestAgain extends Component {
   }
 }
 
-export default TestAgain;
+export default NewUser;
