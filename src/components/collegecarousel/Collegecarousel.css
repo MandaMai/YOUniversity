@@ -1,0 +1,27 @@
+#carousel-college {
+    text-align: center;
+    height: 700px;
+    margin-bottom: 70px
+  }
+  #carousel-college img {
+      width: 100%;
+      height: 900px
+  }
+
+  .caption {
+      margin-bottom: 400px;
+      text-shadow: 2px 2px black;
+      color: rgb(240, 226, 226);
+  }
+
+  .caption h1 {
+      margin-bottom: 40px;
+  }
+
+  .caption h2 {
+    margin-bottom: 40px;
+}
+
+.caption h3 {
+    margin-bottom: 40px;
+}
