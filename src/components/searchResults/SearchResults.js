@@ -88,18 +88,71 @@ function onSelectAll(isSelected, rows) {
 
 const selectRowProp = {
   mode: 'checkbox',
-  clickToSelect: true,
+  // clickToSelect: true,
   onSelect: onRowSelect,
   onSelectAll: onSelectAll
 };
 
-export default class SelectHookTable extends React.Component {
+function formatFloat(cell, row) {
+  return parseFloat(cell);
+}
+
+function afterSearch(searchText, result) {
+  console.log('Your search text is ' + searchText);
+  console.log('Result is:');
+  for (let i = 0; i < result.length; i++) {
+    console.log('Fruit: ' + result[i].id + ', ' + result[i].name + ', ' + result[i].price);
+  }
+}
+
+const options = {
+  afterSearch: afterSearch  // define a after search hook
+};
+
+class BSTable extends React.Component {
   render() {
+    if (this.props.data) {
+      return (
+        <BootstrapTable data={ this.props.data }>
+          <TableHeaderColumn dataField='fieldA' isKey={ true }>Field A</TableHeaderColumn>
+          <TableHeaderColumn dataField='fieldB'>Field B</TableHeaderColumn>
+          <TableHeaderColumn dataField='fieldC'>Field C</TableHeaderColumn>
+          <TableHeaderColumn dataField='fieldD'>Field D</TableHeaderColumn>
+        </BootstrapTable>);
+    } else {
+      return (<p>?</p>);
+    }
+  }
+}
+
+export default class SearchResults extends React.Component {
+  
+  constructor(props) {
+    super(props);
+  }
+
+  isExpandableRow(row) {
+    if (row.id < 2) return true;
+    else return false;
+  }
+
+  expandComponent(row) {
     return (
-      <BootstrapTable data={ products } selectRow={ selectRowProp } pagination hover striped>
-          <TableHeaderColumn dataField='id' isKey={ true } dataSort>Product ID</TableHeaderColumn>
-          <TableHeaderColumn dataField='name' dataSort>Product Name</TableHeaderColumn>
-          <TableHeaderColumn dataField='price' dataSort>Product Price</TableHeaderColumn>
+      <BSTable data={ row.expand } />
+    );
+  }
+  render() {
+    const options = {
+      expandRowBgColor: 'rgb(242, 255, 163)'
+    };
+
+    return (
+      <BootstrapTable data={ products } selectRow={ selectRowProp } search exportCSV={ true } 
+      expandComponent={ this.expandComponent }pagination hover striped>
+          <TableHeaderColumn dataField='id' isKey={ true } dataSort filter={ { type: 'TextFilter', delay: 400 } }>Product ID</TableHeaderColumn>
+          <TableHeaderColumn dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Product Name</TableHeaderColumn>
+          <TableHeaderColumn dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Product Price</TableHeaderColumn>
       </BootstrapTable>
     );
   }
