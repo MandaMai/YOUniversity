@@ -18,7 +18,7 @@ class Navigation extends Component {
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
                                 {/* Change from a to Link */}
-                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="/dashboard">Home</Link></li>
                                 <li><Link to="/favorites">Favorites</Link></li>
                                 <li><Link to="/editpreferences">Edit Preferences</Link></li>
                                 <li><Link to="/logout">Log Out</Link></li>
