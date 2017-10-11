@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, Button, FormControl, ControlLabel, HelpBlock, Link } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 import './Landing.css'
 
@@ -14,7 +15,14 @@ function FieldGroup({ id, label, help, ...props }) {
   );
 }
 
+
+
 class Landing extends Component {
+  
+  routeNewUser() {
+    browserHistory.push('/newuser');
+  }
+
   render() {
     return (
 
@@ -38,9 +46,11 @@ class Landing extends Component {
           <Button type="submit">
             Submit
           </Button>
+
+          
         </form>
       
-        <Button className="new-account" bsStyle="primary" bsSize="large" block>Create New User Account</Button>
+        <Button onClick={this.routeNewUser.bind(this)} className="new-account" bsStyle="primary" bsSize="large" block>Create New User Account</Button>
       </div>
     );
   }
