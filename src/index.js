@@ -17,6 +17,7 @@ import Dashboard from './components/dashboard/Dashboard'
 import EditPreferences from './components/editpreferences/EditPreferences'
 import Favorites from './components/favorites/Favorites'
 import NewUser from './components/newuser/NewUser'
+import Landing from './components/landing/Landing'
 
 import Character from './containers/Character'
 
@@ -29,7 +30,8 @@ ReactDOM.render(
     <div>
       <Router history={history}>
         <Route path="/" component={App}>
-          <IndexRoute component={Character}/>
+          {/* <IndexRoute component={Character}/> */}
+          <IndexRoute component={Landing}/>
           <Route path="dashboard" component={Dashboard}/>
           <Route path="editPreferences" component={EditPreferences} />
           <Route path="favorites" component={Favorites} />
