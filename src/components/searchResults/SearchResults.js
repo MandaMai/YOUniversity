@@ -46,7 +46,7 @@
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-
+let order = 'desc';
 const products = [];
 
 function addProducts(quantity) {
@@ -61,7 +61,9 @@ function addProducts(quantity) {
   }
 }
 
-addProducts(5);
+addProducts(80);
+
+
 
 function onRowSelect(row, isSelected, e, rowIndex) {
   let rowStr = '';
@@ -95,9 +97,9 @@ export default class SelectHookTable extends React.Component {
   render() {
     return (
       <BootstrapTable data={ products } selectRow={ selectRowProp } pagination hover striped>
-          <TableHeaderColumn dataField='id' isKey={ true }>Product ID</TableHeaderColumn>
-          <TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>
-          <TableHeaderColumn dataField='price'>Product Price</TableHeaderColumn>
+          <TableHeaderColumn dataField='id' isKey={ true } dataSort>Product ID</TableHeaderColumn>
+          <TableHeaderColumn dataField='name' dataSort>Product Name</TableHeaderColumn>
+          <TableHeaderColumn dataField='price' dataSort>Product Price</TableHeaderColumn>
       </BootstrapTable>
     );
   }
