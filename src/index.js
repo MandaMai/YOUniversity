@@ -28,6 +28,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 ReactDOM.render(
   <Provider store={store}>
     <div>
+
       <Router history={history}>
         <Route path="/" component={App}>
           {/* <IndexRoute component={Character}/> */}
