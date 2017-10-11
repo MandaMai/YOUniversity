@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navigation from '../navigation/Navigation';
 
 
 class Editpreferences extends Component {
@@ -9,6 +10,7 @@ class Editpreferences extends Component {
     
     return (
       <div>
+        <Navigation />
         edit preferences page
         <br/>
         {stuff}
