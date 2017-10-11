@@ -19,6 +19,9 @@ import Favorites from './components/favorites/Favorites'
 import NewUser from './components/newuser/NewUser'
 import Landing from './components/landing/Landing'
 
+
+import Checkbox from './components/checkbox/Checkbox'
+
 import Character from './containers/Character'
 
 
@@ -33,11 +36,13 @@ ReactDOM.render(
           {/* <IndexRoute component={Character}/> */}
           <IndexRoute component={Landing}/>
           <Route path="dashboard" component={Dashboard}/>
-          <Route path="editPreferences" component={EditPreferences} />
+          <Route path="editpreferences" component={EditPreferences} />
           <Route path="favorites" component={Favorites} />
           <Route path="newuser" component={NewUser}/>
           {/* <Route path="/testagain/:id" component={TestAgain}/> */}
          
+
+          <Route path="checkbox" component={Checkbox} />
           
         </Route>
       </Router>
