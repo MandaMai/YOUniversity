@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { FormGroup, Button, FormControl, ControlLabel, HelpBlock, Link } from 'react-bootstrap';
 
 import './Landing.css'
 
 
-// import LandingNavigation from './components/landingnavigation/LandingNavigation'
 function FieldGroup({ id, label, help, ...props }) {
   return (
     <FormGroup controlId={id}>
@@ -40,6 +39,8 @@ class Landing extends Component {
             Submit
           </Button>
         </form>
+      
+        <Button className="new-account" bsStyle="primary" bsSize="large" block>Create New User Account</Button>
       </div>
     );
   }
