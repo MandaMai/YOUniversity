@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navigation from '../navigation/Navigation';
 
 
 class Favorites extends Component {
@@ -9,6 +10,7 @@ class Favorites extends Component {
     
     return (
       <div>
+        <Navigation />
         Favorites Page
         <br/>
         {stuff}

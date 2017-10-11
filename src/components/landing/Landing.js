@@ -23,6 +23,10 @@ class Landing extends Component {
     browserHistory.push('/newuser');
   }
 
+  routeDashboard() {
+    browserHistory.push('/dashboard');
+  }
+
   render() {
     return (
 
@@ -43,8 +47,8 @@ class Landing extends Component {
             type="password"
           />
 
-          <Button type="submit">
-            Submit
+          <Button onClick={this.routeDashboard.bind(this)} type="submit">
+            Login
           </Button>
 
           
