@@ -4,9 +4,10 @@ import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-b
 
 import Checkbox from '../checkbox/Checkbox'
 // import './Editpreferences.css';
+import { states, majors, cost } from '../newuser/NewUser'
 
 
-const items = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"];
+// const items = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"];
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
@@ -51,8 +52,8 @@ class EditPreferences extends Component {
     />
   )
 
-  createCheckboxes = () => (
-    items.map(this.createCheckbox)
+  createCheckboxes = array => (
+    array.map(this.createCheckbox)
   )
   /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// 
 
@@ -67,35 +68,22 @@ class EditPreferences extends Component {
         <form onSubmit={this.handleFormSubmit}>
 
        <h1>Edit Preferences</h1>
-          <FieldGroup
-            className="form-field"
-            id="formControlsMajor"
-            type="string"
-            label="Major"
-            placeholder="Major"
-          />
+       <label>Majors</label>
+       <div className="form-group">
+         {this.createCheckboxes(majors)}
+       </div>
 
-          <FieldGroup
-            className="form-field"
-            id="formControlsCost"
-            type="string"
-            label="Cost"
-            placeholder="Cost"
-          />
+       <label>Cost</label>
+       <div className="form-group">
+         {this.createCheckboxes(cost)}
+       </div>
 
-          <FieldGroup
-            className="form-field"
-            id="formControlsLocation"
-            type="string"
-            label="Location"
-            placeholder="Location"
-          />
+       <label>Location</label>
+       <div className="form-group">
+         {this.createCheckboxes(states)}
+       </div>
 
-          {/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}
-          <div className="form-group">
-            {this.createCheckboxes()}
-          </div>
-          {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
+
 
           <Button className="btn btn-default" type="submit">
             Create Profile
