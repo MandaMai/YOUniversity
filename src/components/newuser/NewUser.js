@@ -59,11 +59,12 @@ createCheckboxes = () => (
   render() {
     return (
 
+      
 
       <div className="container">
     
         <form onSubmit={this.handleFormSubmit}>
-                 
+          <h1>New User Profile</h1>
           <FieldGroup
             className="form-field"
             id="formControlsFirstName"
@@ -110,15 +111,17 @@ createCheckboxes = () => (
             placeholder="Cost"
           />
 {/* NEED CHECKBOXES */}
-          <FieldGroup
+          {/* <FieldGroup
             className="form-field"
             id="formControlsLocation"
             type="string"
             label="Location"
             placeholder="Location"
-          />
+          /> */}
 
 {/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}  
+          
+          <label>Location</label>
           <div className="form-group">
             { this.createCheckboxes() }       
           </div>
