@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { getSchools } from '../actions/school'
-import {SchoolList} from '../components/schoolList/SchoolList'
+import { SearchResults } from '../components/searchResults/SearchResults'
 
 const mapStateToProps = state => {
   return {
@@ -19,6 +19,6 @@ const mapDispatchToProps = dispatch => {
 const Schools = connect(
   mapStateToProps,
   mapDispatchToProps
-)(SchoolList)
+)(SearchResults)
 
 export default Schools
