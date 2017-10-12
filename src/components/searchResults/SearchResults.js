@@ -71,8 +71,10 @@ export class SearchResults extends Component {
   data = [];
 
   componentDidMount() {
-    console.log(this.props)
-    this.props.renderSchools()
+    if(!this.data.length){
+      this.props.renderSchools()
+    }
+    
   }
 
   render() {
@@ -89,6 +91,7 @@ export class SearchResults extends Component {
       )
     
 
+    // return inside the if
     return (
       
       <div>
@@ -123,6 +126,8 @@ export class SearchResults extends Component {
 
     );
   }
+
+  //return outside the if for when we are waiting for the data
   return (<div>loading...</div>)
 }
 
