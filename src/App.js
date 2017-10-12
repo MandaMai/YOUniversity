@@ -3,7 +3,7 @@ import './App.css';
 
 import Navigation from './components/navigation/Navigation'
 
-
+import User from './containers/User';
 class App extends Component {
   render() {
     return (
@@ -12,6 +12,7 @@ class App extends Component {
         {/* <Navigation /> */}
        
         {this.props.children}
+        <User />
       </div>
     );
   }

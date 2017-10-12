@@ -6,6 +6,7 @@ import Checkbox from '../checkbox/Checkbox'
 import './NewUser.css';
 
 
+
 export const states = ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV','WY'];
 
 export const majors = ['education', 'mathematics', 'business_marketing', 'communications_technology', 'language', 'visual_performing', 'engineering_technology', 'parks_recreation_fitness', 'agriculture', 'security_law_enforcement', 'computer', 'precision_production', 'humanities', 'library', 'psychology', 'social_science', 'legal', 'english', 'construction', 'military', 'communication', 'public_administration_social_service', 'architecture', 'ethnic_cultural_gender', 'resources', 'health', 'engineering', 'history', 'theology_religious_vocation', 'transportation', 'physical_science', 'science_technology', 'biological', 'family_consumer_science', 'philosophy_religious', 'personal_culinary', 'multidiscipline', 'mechanic_repair_technology']
@@ -69,13 +70,15 @@ createCheckboxes = array => (
 
 
   render() {
+    console.log(`this.props is ${JSON.stringify(this.props)}`)
     return (
 
 
-      <div class = "parentContainer">
+      <div className = "parentContainer">
       <Button onClick={this.routeBacktoLanding.bind(this)} bsStyle="primary">Back</Button>
-
       <div className="container">
+      
+
       
 
     
@@ -144,9 +147,14 @@ createCheckboxes = array => (
        
 {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 
-          <Button className="btn btn-default"type="submit">
+<Button onClick={this.props.renderUser}  className="btn btn-default"type="submit">
             Create Profile
+
           </Button>
+
+
+ 
+
         </form>
       </div>
       </div>
