@@ -75,8 +75,8 @@ createCheckboxes = array => (
     return (
 
 
-    
-        <Button onClick={this.routeBacktoLanding.bind(this)} bsStyle="primary">Back</Button>
+      <div class = "parentContainer">
+      <Button onClick={this.routeBacktoLanding.bind(this)} bsStyle="primary">Back</Button>
 
       <div className="container">
       

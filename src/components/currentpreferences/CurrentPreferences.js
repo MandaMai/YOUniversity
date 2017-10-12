@@ -14,7 +14,7 @@ export class CurrentPreferences extends Component {
 
         return (
 
-            
+            <div>
             <Grid>
                 <Row className="show-grid">
                     <Col xs={12} md={8}><code>&lt;{'Col xs={12} md={8}'} /&gt;</code></Col>
@@ -36,6 +36,7 @@ export class CurrentPreferences extends Component {
                     <Col md={6} mdPull={6}><code>&lt;{'Col md={6} mdPull={6}'} /&gt;</code></Col>
                 </Row>
             </Grid>
+            </div>
         );
     }
 }
