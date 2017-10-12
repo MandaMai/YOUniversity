@@ -71,8 +71,10 @@ export class SearchResults extends Component {
   data = [];
 
   componentDidMount() {
-    console.log(this.props)
-    this.props.renderSchools()
+    if(!this.data.length){
+      this.props.renderSchools()
+    }
+    
   }
 
   render() {
