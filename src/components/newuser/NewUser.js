@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 import Checkbox from '../checkbox/Checkbox'
 import './NewUser.css';
@@ -27,6 +28,11 @@ function FieldGroup({ id, label, help, ...props }) {
 }
 
 class NewUser extends Component {
+
+
+  routeBacktoLanding() {
+    browserHistory.push('/#');
+  }
 
 
 ////// /// /// /// /// CHECKBOX /// /// /// /// /// /// /// /// ///
@@ -68,8 +74,11 @@ createCheckboxes = array => (
   render() {
     return (
 
-
       <div className="container">
+      <Button onClick={this.routeBacktoLanding.bind(this)} className="return-to-landing" bsStyle="primary" bsSize="large" block>Back</Button>
+
+
+    
     
         <form onSubmit={this.handleFormSubmit}>
             <h1>New User Profile</h1>     

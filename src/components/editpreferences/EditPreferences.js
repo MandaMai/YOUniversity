@@ -11,6 +11,7 @@ import { states, majors, cost } from '../newuser/NewUser'
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
+    
     <FormGroup controlId={id}>
       <ControlLabel>{label}</ControlLabel>
       <FormControl {...props} />
@@ -62,9 +63,11 @@ class EditPreferences extends Component {
   render() {
     return (
 
+  <div className="Wrapper">
+        <Navigation />
 
       <div className="container">
-
+    
         <form onSubmit={this.handleFormSubmit}>
 
        <h1>Edit Preferences</h1>
@@ -86,11 +89,11 @@ class EditPreferences extends Component {
 
 
           <Button className="btn btn-default" type="submit">
-            Create Profile
+            Search
           </Button>
         </form>
       </div>
-
+      </div>
     );
   }
 }
