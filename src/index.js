@@ -21,6 +21,7 @@ import Landing from './components/landing/Landing'
 
 
 import Checkbox from './components/checkbox/Checkbox'
+import CurrentPreferences from './components/currentpreferences/CurrentPreferences'
 
 import Character from './containers/Character'
 
