@@ -20,7 +20,7 @@ function FieldGroup({ id, label, help, ...props }) {
 class NewUser extends Component {
 
 
-////// /// /// /// /// CHECKBOX /// /// /// /// /// /// 
+////// /// /// /// /// CHECKBOX /// /// /// /// /// /// /// /// ///
 componentWillMount = () => {
   this.selectedCheckboxes = new Set();
 }
@@ -61,10 +61,7 @@ createCheckboxes = () => (
 
 
       <div className="container">
-      {/* <div className="row">
-
-        <div className="col-md-4">
-        <div className="col-md-4"> */}
+    
         <form onSubmit={this.handleFormSubmit}>
                  
           <FieldGroup
@@ -76,7 +73,7 @@ createCheckboxes = () => (
           />
           <FieldGroup
             className="form-field"
-            id="formControlsFirstName"
+            id="formControlsLastName"
             type="string"
             label="Last Name"
             placeholder="Last Name"
@@ -104,7 +101,7 @@ createCheckboxes = () => (
             label="Major"
             placeholder="Major"
           />
-
+{/* NEED CHECKBOXES */}
           <FieldGroup
             className="form-field"
             id="formControlsCost"
@@ -112,7 +109,7 @@ createCheckboxes = () => (
             label="Cost"
             placeholder="Cost"
           />
-
+{/* NEED CHECKBOXES */}
           <FieldGroup
             className="form-field"
             id="formControlsLocation"
@@ -120,64 +117,24 @@ createCheckboxes = () => (
             label="Location"
             placeholder="Location"
           />
-{/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}
 
-    
-            <div className="form-group">
-               < div className = "test" >
-
-                
-    
- {
-   this.createCheckboxes()
- }
-           </div>
- </div>
-{/* ////// /// /// /// ///  /// /// /// /// /// ///  */}
-
-
+{/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}  
+          <div className="form-group">
+            { this.createCheckboxes() }       
+          </div>
+{/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 
           <Button className="btn btn-default"type="submit">
             Create Profile
           </Button>
         </form>
       </div>
-      // </div>
-      // </div>
-      // </div>
        
     );
   }
 }
 
 
-
-
-
-
-
-
-
-
-
-//   render() {
-//     return (
-//       <div className="container">
-//         <div className="row">
-//           <div className="col-sm-12">
-
-//             <form onSubmit={this.handleFormSubmit}>
-//               {this.createCheckboxes()}
-
-//               <button className="btn btn-default" type="submit">Save</button>
-//             </form>
-
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 
 export default NewUser;
 
