@@ -74,25 +74,19 @@ createCheckboxes = array => (
   render() {
     return (
 
-<<<<<<< HEAD
-=======
-      
-
->>>>>>> eb2114506828ee3883ffbea5ff9314ee3f35d0a6
+<div className="wrapper">
+    
+        <Button onClick={this.routeBacktoLanding.bind(this)} bsStyle="primary">Back</Button>
       <div className="container">
-      <Button onClick={this.routeBacktoLanding.bind(this)} className="return-to-landing" bsStyle="primary" bsSize="large" block>Back</Button>
-
+      
 
     
     
         <form onSubmit={this.handleFormSubmit}>
-<<<<<<< HEAD
+
             <h1>New User Profile</h1>     
 
-            
-=======
           <h1>New User Profile</h1>
->>>>>>> eb2114506828ee3883ffbea5ff9314ee3f35d0a6
           <FieldGroup
             className="form-field"
             id="formControlsFirstName"
@@ -123,7 +117,7 @@ createCheckboxes = array => (
             placeholder="Password"
           />
 
-<<<<<<< HEAD
+
 
 
 
@@ -157,7 +151,7 @@ createCheckboxes = array => (
 {/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}  
           
           <label>Location</label>
->>>>>>> eb2114506828ee3883ffbea5ff9314ee3f35d0a6
+
           <div className="form-group">
             { this.createCheckboxes(majors) }
           </div>
@@ -178,11 +172,11 @@ createCheckboxes = array => (
           </Button>
         </form>
       </div>
-       
+      </div>
+
     );
   }
 }
-
 
 
 export default NewUser;

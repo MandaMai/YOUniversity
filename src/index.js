@@ -21,6 +21,7 @@ import Landing from './components/landing/Landing'
 
 
 import Checkbox from './components/checkbox/Checkbox'
+import CurrentPreferences from './components/currentpreferences/CurrentPreferences'
 
 import School from './containers/School'
 
@@ -43,6 +44,7 @@ ReactDOM.render(
          
 
           <Route path="checkbox" component={Checkbox} />
+          <Route path="currentpreferences" component={CurrentPreferences} />
           
         </Route>
       </Router>

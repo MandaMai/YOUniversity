@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from '../navigation/Navigation';
 import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 import Checkbox from '../checkbox/Checkbox'
 <<<<<<< HEAD
@@ -27,6 +28,10 @@ function FieldGroup({ id, label, help, ...props }) {
 
 class EditPreferences extends Component {
 
+
+  routeBacktoDashboard() {
+    browserHistory.push('/dashboard');
+  }
 
   ////// /// /// /// /// CHECKBOX /// /// /// /// /// /// /// /// ///
   componentWillMount = () => {
@@ -69,6 +74,7 @@ class EditPreferences extends Component {
 
   <div className="Wrapper">
         <Navigation />
+        <Button onClick={this.routeBacktoDashboard.bind(this)} bsStyle="primary">Back</Button>
 
       <div className="container">
     
