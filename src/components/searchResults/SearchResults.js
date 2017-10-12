@@ -71,13 +71,15 @@ export class SearchResults extends Component {
   data = [];
 
   componentDidMount() {
-    console.log(this.props)
-    this.props.renderSchools()
+    if(!this.data.length){
+      this.props.renderSchools()
+    }
+    
   }
 
   render() {
     console.log(`this.props.schools is ${JSON.stringify(this.props.schools)}`)
-    if(this.props.schools.length && this.props.schools.schools.length){
+    if(this.props.schools && this.props.schools.schools){
       this.data = this.props.schools.schools.map(
         school => {
           return { 
@@ -87,10 +89,9 @@ export class SearchResults extends Component {
           }
         }
       )
-    } else {
-      this.data = []
-    }
+    
 
+    // return inside the if
     return (
       
       <div>
@@ -125,7 +126,12 @@ export class SearchResults extends Component {
 
     );
   }
- 
+
+  //return outside the if for when we are waiting for the data
+  return (<div>loading...</div>)
+}
+
+
  
 } 
 
