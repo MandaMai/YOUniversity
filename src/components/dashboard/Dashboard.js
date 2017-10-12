@@ -10,7 +10,7 @@ class Dashboard extends Component {
     return (
       <div>
         <Navigation />
-        this is the Dashboard
+        this is the Dashboard --> placeholder grid below 
         <CurrentPreferences />
         <SearchResults />
       </div>
