@@ -74,8 +74,70 @@ export class SearchResults extends Component {
     console.log(this.props)
     this.props.renderSchools()
   }
+ 
 
+
+
+
+  getLocale(index) {
+    switch (index) {
+      case 11:
+        return "City: 250k+"
+        break;
+      case 12:
+        return "City: 100-250k"
+        break;
+      case 13:
+        return "City: <100k"
+        break;
+      case 21:
+        return "Suburb: 250k+"
+        break;
+      case 22:
+        return "Suburb: 100-250k"
+        break;
+      case 23:
+        return "Suburb: <100k"
+        break;
+      case 31:
+        return "Town: Fringe"
+        break;
+      case 32:
+        return "Town: Distant"
+        break;
+      case 33:
+        return "Town: Remote"
+        break;
+      case 41:
+        return "Rural: Fringe"
+        break;
+      case 42:
+        return "Rural: Distant"
+        break;
+      case 43:
+        return "Rural: Remote"
+        break;
+
+      default:
+        return "Other"
+        break;
+    }
+  }
   render() {
+    const getDegree = {
+      0: 'Non-Degree-Granting',
+      1: 'Certificate',
+      2: 'Associate',
+      3: "Bachelor's",
+      4: 'Graduate'
+  }
+  
+  const getOwnership = {
+    1: "Public",
+    2: "Private N-P",
+    3: "Private F-P"
+  }
+
     console.log(`this.props.schools is ${JSON.stringify(this.props.schools)}`)
     if(this.props.schools && this.props.schools.schools){
       this.data = this.props.schools.schools.map(
@@ -83,7 +145,17 @@ export class SearchResults extends Component {
           return { 
             id: school.id,
             name: school['school.name'],
-            cost: school['2015.cost.avg_net_price.public']
+            netCost: school['2015.cost.avg_net_price.public'],
+            inState: school["2015.cost.tuition.in_state"],
+            outState: school["2015.cost.tuition.out_of_state"],
+            location: school["school.locale"],
+            size: school["2015.student.size"],
+            state: school["school.state"],
+            admission: school["2015.admissions.admission_rate.overall"],
+            highestDegree: getDegree[school["school.degrees_awarded.highest"]],
+            ownership: school["school.ownership"]
+
+
           }
         }
       )
@@ -94,30 +166,27 @@ export class SearchResults extends Component {
       
       <div>
         <BootstrapTable data={ this.data } selectRow={ selectRowProp } search exportCSV={ true } pagination striped>
-          <TableHeaderColumn row='0' rowSpan='2' dataField='id' isKey={ true } dataSort filter={ { type: 'TextFilter', delay: 400 } }>Product ID</TableHeaderColumn>
-          <TableHeaderColumn row='0' colSpan='2'>Basic School Info</TableHeaderColumn>
+          <TableHeaderColumn row='0' rowSpan='2' dataField='id' isKey={ true } dataSort filter={ { type: 'TextFilter', delay: 400 } }>School ID</TableHeaderColumn>
+          <TableHeaderColumn row='0' colSpan='7'>Basic School Info</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Name</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>State</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Location Type</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='cost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>Student Size</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='cost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>Admission Rate</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Bachelor's Degree Offered</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Associate's Degree Offered</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Highest Awarded Degree</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Predominant Awarded Degree</TableHeaderColumn>
-          <TableHeaderColumn row='0' colSpan='2'>School Cost Information</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='cost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>In-State Tuition</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='cost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>Out-Of-State Tuition</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='cost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>Program Year Tuition</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='cost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>Average Net Price</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>Academic Year Cost</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='size' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Size</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='location' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Location</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='state' dataSort filter={ { type: 'TextFilter', delay: 400 } }>State</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='admission' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Admission %</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='highestDegree' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Highest Awarded Degree</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='ownership' dataSort filter={ { type: 'TextFilter', delay: 400 } }>School Type</TableHeaderColumn>
+
+          <TableHeaderColumn row='0' colSpan='3'>School Cost Information</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='inState' dataSort filter={ { type: 'TextFilter', delay: 400 } }>In-State</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='outState' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Out-Of-State</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='netCost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Avg Net Cost</TableHeaderColumn>
+
+          
+          
+
+          
         </BootstrapTable>
         <script src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.js" />
       </div>
