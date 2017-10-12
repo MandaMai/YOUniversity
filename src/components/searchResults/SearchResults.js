@@ -1,48 +1,3 @@
-// import './SearchResults.css'
-// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-
-// import React, { Component } from 'react';
-
-// var ReactDOM = require('react-dom');
-// var ReactBsTable  = require('react-bootstrap-table');
-
-
-// var products = [{
-//       id: 1,
-//       name: "Product1",
-//       price: 120
-//   }, {
-//       id: 2,
-//       name: "Product2",
-//       price: 80
-//   }];
-
-// class SearchResults extends Component {
-//   render() {
-
-//     const selectRow = {
-//       mode: 'checkbox',
-//       bgColor: 'pink',
-//       className: 'my-selection-custom'
-//     };
-
-//     return (
-//       <div>
-//         <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css">
-// </link>
-// <BootstrapTable data={products} selectRow={ selectRow } striped hover>
-//       <TableHeaderColumn isKey dataField='id'>Product ID</TableHeaderColumn>
-//       <TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>
-//       <TableHeaderColumn dataField='price'>Product Price</TableHeaderColumn>
-//   </BootstrapTable>
-// <script src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.js" />
-//       </div>
-//     );
-//   }
-// }
-
-// export default SearchResults;
-
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
@@ -57,30 +12,12 @@ function addProducts(quantity) {
   const startId = products.length;
   for (let i = 0; i < quantity; i++) {
     const id = startId + i;
-    if (i < 3) {
-      products.push({
-        id: id,
-        name: 'Item name ' + id,
-        price: 2100 + i,
-        expand: [ {
-          fieldA: 'test1',
-          fieldB: (i + 1) * 99,
-          fieldC: (i + 1) * Math.random() * 100,
-          fieldD: '123eedd' + i
-        }, {
-          fieldA: 'test2',
-          fieldB: i * 99,
-          fieldC: i * Math.random() * 100,
-          fieldD: '123eedd' + i
-        } ]
-      });
-    } else {
       products.push({
         id: id,
         name: 'Item name ' + id,
         price: 2100 + i
       });
-    }
+    
   }
 }
 addProducts(80);
@@ -143,10 +80,29 @@ export default class SearchResults extends React.Component {
       
       <BootstrapTable data={ products } selectRow={ selectRowProp } search exportCSV={ true } pagination striped>
           <TableHeaderColumn row='0' rowSpan='2' dataField='id' isKey={ true } dataSort filter={ { type: 'TextFilter', delay: 400 } }>Product ID</TableHeaderColumn>
-          <TableHeaderColumn row='0' colSpan='2'>School Info</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Product Name</TableHeaderColumn>
+          <TableHeaderColumn row='0' colSpan='2'>Basic School Info</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Name</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>State</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Location Type</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>Product Price</TableHeaderColumn>
+          dataFormat={ formatFloat }>Student Size</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Admission Rate</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Bachelor's Degree Offered</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Associate's Degree Offered</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Highest Awarded Degree</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='name' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Predominant Awarded Degree</TableHeaderColumn>
+          <TableHeaderColumn row='0' colSpan='2'>School Cost Information</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>In-State Tuition</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Out-Of-State Tuition</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Program Year Tuition</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Average Net Price</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='price' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Academic Year Cost</TableHeaderColumn>
       </BootstrapTable>
     );
     <script src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.js" />

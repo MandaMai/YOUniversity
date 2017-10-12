@@ -3,8 +3,12 @@ import Navigation from '../navigation/Navigation';
 import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 
 import Checkbox from '../checkbox/Checkbox'
+<<<<<<< HEAD
 // import './Editpreferences.css';
 import { states, majors, cost } from '../newuser/NewUser'
+=======
+import '../newuser/NewUser.css';
+>>>>>>> eb2114506828ee3883ffbea5ff9314ee3f35d0a6
 
 
 // const items = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"];
