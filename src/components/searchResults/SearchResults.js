@@ -77,7 +77,7 @@ export class SearchResults extends Component {
 
   render() {
     console.log(`this.props.schools is ${JSON.stringify(this.props.schools)}`)
-    if(this.props.schools.length && this.props.schools.schools.length){
+    if(this.props.schools && this.props.schools.schools){
       this.data = this.props.schools.schools.map(
         school => {
           return { 
@@ -87,9 +87,7 @@ export class SearchResults extends Component {
           }
         }
       )
-    } else {
-      this.data = []
-    }
+    
 
     return (
       
@@ -125,7 +123,10 @@ export class SearchResults extends Component {
 
     );
   }
- 
+  return (<div>loading...</div>)
+}
+
+
  
 } 
 
