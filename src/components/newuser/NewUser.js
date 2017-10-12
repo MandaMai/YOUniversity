@@ -73,10 +73,12 @@ createCheckboxes = array => (
 
   render() {
     return (
-
+<div className="wrapper">
+    
+        <Button onClick={this.routeBacktoLanding.bind(this)} bsStyle="primary">Back</Button>
+   
       <div className="container">
-      <Button onClick={this.routeBacktoLanding.bind(this)} className="return-to-landing" bsStyle="primary" bsSize="large" block>Back</Button>
-
+      
 
     
     
@@ -139,11 +141,11 @@ createCheckboxes = array => (
           </Button>
         </form>
       </div>
-       
+      </div>
+
     );
   }
 }
-
 
 
 export default NewUser;
