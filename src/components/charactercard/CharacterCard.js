@@ -6,12 +6,12 @@ import './CharacterCard.css'
 class CharacterCard extends Component {
   render() {
 
-    let character = this.props.character;
+    let school = this.props.school || "";
 
     return (
       <Col xs={12} sm={6} md={3}>
-        <Thumbnail className="text-center" src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name}>
-          <h3>{character.name}</h3>
+        <Thumbnail className="text-center">
+          <h3>{school["school.name"]}</h3>
         </Thumbnail>
       </Col>
     );

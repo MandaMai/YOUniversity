@@ -1,10 +1,10 @@
 import _ from 'lodash';
 
-const characters = (state = {}, action) => {
+const schools = (state = {}, action) => {
   switch (action.type) {
-    case 'GET_CHARACTERS': {
+    case 'GET_SCHOOLS': {
       const nextState = _.merge({}, state);
-      nextState.characters = action.characters;
+      nextState.schools = action.schools;
       return nextState;
     }
     default:
@@ -12,4 +12,4 @@ const characters = (state = {}, action) => {
   }
 }
 
-export default characters
+export default schools

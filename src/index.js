@@ -22,7 +22,7 @@ import Landing from './components/landing/Landing'
 
 import Checkbox from './components/checkbox/Checkbox'
 
-import Character from './containers/Character'
+import School from './containers/School'
 
 
 let store = createStore(marvelApp, applyMiddleware(thunk))

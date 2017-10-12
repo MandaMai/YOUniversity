@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import characters from './characters'
+import schools from './schools'
 
 const marvelApp = combineReducers({
-  characters,
+  schools,
   routing: routerReducer
 })
 
