@@ -35,11 +35,13 @@ export function getSchools(stateFilter = "",programFilter = "", costFilter = "")
   search=stateSearch+programSearch+costSearch;
   console.log(search);
   alert(`${baseUrl}${search}${fields}${sortItems}${perPage}&api_key=${generateCredentials()}`);
+  
   return dispatch => {
     request.get(`${baseUrl}${search}${fields}${sortItems}${perPage}&api_key=${generateCredentials()}`).end(
       (error, response) => {
+        console.log(`Response is: ${JSON.stringify(response.body.results)}`)
         if(!error) {
-          dispatch({ type: `GET_SCHOOLS`, schools: response.body.results});
+          dispatch({ type: `GET_SCHOOLS`, schools: response.body.results });
         }
       }
     );
