@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import characters from './characters'
 
-const marvelApp = combineReducers({
-  characters,
+
+const YOUniversity = combineReducers({
+
   routing: routerReducer
 })
 
-export default marvelApp
+export default YOUniversity

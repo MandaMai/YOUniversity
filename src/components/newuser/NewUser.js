@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 import Checkbox from '../checkbox/Checkbox'
+import './NewUser.css';
 
 
-const items = ["AK", "AL", "AR","AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV","WY"];
+export const states = ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV','WY'];
+
+export const majors = ['education', 'mathematics', 'business_marketing', 'communications_technology', 'language', 'visual_performing', 'engineering_technology', 'parks_recreation_fitness', 'agriculture', 'security_law_enforcement', 'computer', 'precision_production', 'humanities', 'library', 'psychology', 'social_science', 'legal', 'english', 'construction', 'military', 'communication', 'public_administration_social_service', 'architecture', 'ethnic_cultural_gender', 'resources', 'health', 'engineering', 'history', 'theology_religious_vocation', 'transportation', 'physical_science', 'science_technology', 'biological', 'family_consumer_science', 'philosophy_religious', 'personal_culinary', 'multidiscipline', 'mechanic_repair_technology']
+
+export const cost = ['$0-2,000', 'up to $5,000', 'up to $10,000', 'up to $30,000', 'up to $50,000', 'any' ]
+
+
+
+
+
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
@@ -19,7 +30,12 @@ function FieldGroup({ id, label, help, ...props }) {
 class NewUser extends Component {
 
 
-////// /// /// /// /// CHECKBOX /// /// /// /// /// /// 
+  routeBacktoLanding() {
+    browserHistory.push('/#');
+  }
+
+
+////// /// /// /// /// CHECKBOX /// /// /// /// /// /// /// /// ///
 componentWillMount = () => {
   this.selectedCheckboxes = new Set();
 }
@@ -48,8 +64,8 @@ createCheckbox = label => (
   />
 )
 
-createCheckboxes = () => (
-  items.map(this.createCheckbox)
+createCheckboxes = array => (
+  array.map(this.createCheckbox)
 )
 /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// 
 
@@ -58,9 +74,16 @@ createCheckboxes = () => (
   render() {
     return (
 
+      <div className="container">
+      <Button onClick={this.routeBacktoLanding.bind(this)} className="return-to-landing" bsStyle="primary" bsSize="large" block>Back</Button>
 
-      <div>
-        <form>
+
+    
+    
+        <form onSubmit={this.handleFormSubmit}>
+            <h1>New User Profile</h1>     
+
+            
           <FieldGroup
             className="form-field"
             id="formControlsFirstName"
@@ -70,7 +93,7 @@ createCheckboxes = () => (
           />
           <FieldGroup
             className="form-field"
-            id="formControlsFirstName"
+            id="formControlsLastName"
             type="string"
             label="Last Name"
             placeholder="Last Name"
@@ -91,86 +114,37 @@ createCheckboxes = () => (
             placeholder="Password"
           />
 
-          <FieldGroup
-            className="form-field"
-            id="formControlsMajor"
-            type="string"
-            label="Major"
-            placeholder="Major"
-          />
 
-          <FieldGroup
-            className="form-field"
-            id="formControlsCost"
-            type="string"
-            label="Cost"
-            placeholder="Cost"
-          />
 
-          <FieldGroup
-            className="form-field"
-            id="formControlsLocation"
-            type="string"
-            label="Location"
-            placeholder="Location"
-          />
-{/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}
 
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
-
-                <form onSubmit={this.handleFormSubmit}>
-                  {this.createCheckboxes()}
-
-                  {/* <button className="btn btn-default" type="submit">Save</button> */}
-                </form>
-
-              </div>
-            </div>
+  {/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}  
+          <label>Majors</label>
+          <div className="form-group">
+            { this.createCheckboxes(majors) }
           </div>
 
-{/* ////// /// /// /// ///  /// /// /// /// /// ///  */}
-
-
+          <label>Cost</label>
+          <div className="form-group">
+            {this.createCheckboxes(cost)}
+          </div>
+        
+          <label>Location</label>
+           <div className="form-group">
+            { this.createCheckboxes(states) }       
+          </div>
+{/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 
           <Button className="btn btn-default"type="submit">
             Create Profile
           </Button>
         </form>
       </div>
+       
     );
   }
 }
 
 
-
-
-
-
-
-
-
-
-
-//   render() {
-//     return (
-//       <div className="container">
-//         <div className="row">
-//           <div className="col-sm-12">
-
-//             <form onSubmit={this.handleFormSubmit}>
-//               {this.createCheckboxes()}
-
-//               <button className="btn btn-default" type="submit">Save</button>
-//             </form>
-
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 
 export default NewUser;
 

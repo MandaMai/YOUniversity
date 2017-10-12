@@ -11,7 +11,7 @@ import { Link } from 'react-router';
 
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
-import marvelApp from './reducers'
+import YOUniversity from './reducers'
 
 import Dashboard from './components/dashboard/Dashboard'
 import EditPreferences from './components/editpreferences/EditPreferences'
@@ -22,10 +22,10 @@ import Landing from './components/landing/Landing'
 
 import Checkbox from './components/checkbox/Checkbox'
 
-import Character from './containers/Character'
 
 
-let store = createStore(marvelApp, applyMiddleware(thunk))
+
+let store = createStore(YOUniversity, applyMiddleware(thunk))
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
