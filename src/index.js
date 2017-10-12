@@ -35,11 +35,12 @@ ReactDOM.render(
       <Router history={history}>
         <Route path="/" component={App}>
           {/* <IndexRoute component={Character}/> */}
+          <Route path="newuser" component={NewUser} />
           <IndexRoute component={Landing}/>
           <Route path="dashboard" component={Dashboard}/>
           <Route path="editpreferences" component={EditPreferences} />
           <Route path="favorites" component={Favorites} />
-          <Route path="newuser" component={NewUser}/>
+      
           {/* <Route path="/testagain/:id" component={TestAgain}/> */}
          
 

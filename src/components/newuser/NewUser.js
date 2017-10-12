@@ -86,9 +86,6 @@ createCheckboxes = array => (
         <form onSubmit={this.handleFormSubmit}>
  
 
-
-            <h1>New User Profile</h1>     
-
           <h1>New User Profile</h1>
 
           <FieldGroup
