@@ -73,19 +73,20 @@ createCheckboxes = array => (
 
   render() {
     return (
+
 <div className="wrapper">
     
         <Button onClick={this.routeBacktoLanding.bind(this)} bsStyle="primary">Back</Button>
-   
       <div className="container">
       
 
     
     
         <form onSubmit={this.handleFormSubmit}>
+
             <h1>New User Profile</h1>     
 
-            
+          <h1>New User Profile</h1>
           <FieldGroup
             className="form-field"
             id="formControlsFirstName"
@@ -119,8 +120,38 @@ createCheckboxes = array => (
 
 
 
+
   {/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}  
           <label>Majors</label>
+=======
+          <FieldGroup
+            className="form-field"
+            id="formControlsMajor"
+            type="string"
+            label="Major"
+            placeholder="Major"
+          />
+{/* NEED CHECKBOXES */}
+          <FieldGroup
+            className="form-field"
+            id="formControlsCost"
+            type="string"
+            label="Cost"
+            placeholder="Cost"
+          />
+{/* NEED CHECKBOXES */}
+          {/* <FieldGroup
+            className="form-field"
+            id="formControlsLocation"
+            type="string"
+            label="Location"
+            placeholder="Location"
+          /> */}
+
+{/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}  
+          
+          <label>Location</label>
+
           <div className="form-group">
             { this.createCheckboxes(majors) }
           </div>
