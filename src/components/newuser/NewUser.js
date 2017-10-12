@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { FormGroup, Button, FormControl, ControlLabel, HelpBlock, DropdownButton, MenuItem } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
 import Checkbox from '../checkbox/Checkbox'
@@ -10,10 +10,7 @@ export const states = ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE
 
 export const majors = ['education', 'mathematics', 'business_marketing', 'communications_technology', 'language', 'visual_performing', 'engineering_technology', 'parks_recreation_fitness', 'agriculture', 'security_law_enforcement', 'computer', 'precision_production', 'humanities', 'library', 'psychology', 'social_science', 'legal', 'english', 'construction', 'military', 'communication', 'public_administration_social_service', 'architecture', 'ethnic_cultural_gender', 'resources', 'health', 'engineering', 'history', 'theology_religious_vocation', 'transportation', 'physical_science', 'science_technology', 'biological', 'family_consumer_science', 'philosophy_religious', 'personal_culinary', 'multidiscipline', 'mechanic_repair_technology']
 
-export const cost = ['$0-2,000', 'up to $5,000', 'up to $10,000', 'up to $30,000', 'up to $50,000', 'any' ]
-
-
-
+export const cost = [ '$0-2,000', 'up to $5,000', 'up to $10,000', 'up to $30,000', 'up to $50,000', 'any' ]
 
 
 
@@ -125,22 +122,26 @@ createCheckboxes = array => (
 
 {/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}  
           
-          <label>Location</label>
+          <label>Major</label>
 
 
           <div className="form-group">
             { this.createCheckboxes(majors) }
           </div>
 
-          <label>Cost</label>
-          <div className="form-group">
-            {this.createCheckboxes(cost)}
-          </div>
-        
+      
+<div>
+          <DropdownButton title="Cost" id="bg-vertical-dropdown-1">
+            <MenuItem eventKey="1">up to $1,000</MenuItem>
+            <MenuItem eventKey="2">up to $1,000,000</MenuItem>
+          </DropdownButton>
+  </div>
+  <br />      
           <label>Location</label>
            <div className="form-group">
             { this.createCheckboxes(states) }       
           </div>
+       
 {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 
           <Button className="btn btn-default"type="submit">

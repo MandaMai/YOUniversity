@@ -44,7 +44,7 @@ ReactDOM.render(
           {/* <Route path="/testagain/:id" component={TestAgain}/> */}
          
 
-          <Route path="checkbox" component={Checkbox} />
+          {/* <Route path="checkbox" component={Checkbox} /> */}
           <Route path="currentpreferences" component={CurrentPreferences} />
           
         </Route>
