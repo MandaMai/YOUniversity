@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 
 import Checkbox from '../checkbox/Checkbox'
+import './NewUser.css';
 
 
 const items = ["AK", "AL", "AR","AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV","WY"];
@@ -59,8 +60,13 @@ createCheckboxes = () => (
     return (
 
 
-      <div>
-        <form>
+      <div className="container">
+      {/* <div className="row">
+
+        <div className="col-md-4">
+        <div className="col-md-4"> */}
+        <form onSubmit={this.handleFormSubmit}>
+                 
           <FieldGroup
             className="form-field"
             id="formControlsFirstName"
@@ -116,20 +122,17 @@ createCheckboxes = () => (
           />
 {/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}
 
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
+    
+            <div className="form-group">
+               < div className = "test" >
 
-                <form onSubmit={this.handleFormSubmit}>
-                  {this.createCheckboxes()}
-
-                  {/* <button className="btn btn-default" type="submit">Save</button> */}
-                </form>
-
-              </div>
-            </div>
-          </div>
-
+                
+    
+ {
+   this.createCheckboxes()
+ }
+           </div>
+ </div>
 {/* ////// /// /// /// ///  /// /// /// /// /// ///  */}
 
 
@@ -139,6 +142,10 @@ createCheckboxes = () => (
           </Button>
         </form>
       </div>
+      // </div>
+      // </div>
+      // </div>
+       
     );
   }
 }
