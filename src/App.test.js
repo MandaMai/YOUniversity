@@ -7,9 +7,9 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
-import marvelApp from './reducers'
+import YOUniversity from './reducers'
 
-let store = createStore(marvelApp, applyMiddleware(thunk))
+let store = createStore(YOUniversity, applyMiddleware(thunk))
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
