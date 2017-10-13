@@ -34,7 +34,7 @@ export function getSchools(stateFilter = "",programFilter = "", costFilter = "")
   }
   search=stateSearch+programSearch+costSearch;
   console.log(search);
-  alert(`${baseUrl}${search}${fields}${sortItems}${perPage}&api_key=${generateCredentials()}`);
+  // alert(`${baseUrl}${search}${fields}${sortItems}${perPage}&api_key=${generateCredentials()}`);
   
   return dispatch => {
     request.get(`${baseUrl}${search}${fields}${sortItems}${perPage}&api_key=${generateCredentials()}`).end(
