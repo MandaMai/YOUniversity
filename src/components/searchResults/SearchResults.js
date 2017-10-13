@@ -90,6 +90,8 @@ export class SearchResults extends Component {
     3: "Private F-P"
   }
 
+  
+
   const getLocale = {
     11:"City: 250k+",
     12:"City: 100-250k",
@@ -109,10 +111,11 @@ export class SearchResults extends Component {
     if(this.props.schools && this.props.schools.schools){
       this.data = this.props.schools.schools.map(
         school => {
+          let temp = parseInt(school['2015.cost.avg_net_price.public'])
           return { 
             id: school.id,
             name: school['school.name'],
-            netCost: school['2015.cost.avg_net_price.public'],
+            netCost: temp,
             inState: school["2015.cost.tuition.in_state"],
             outState: school["2015.cost.tuition.out_of_state"],
             location: getLocale[school["school.locale"]],
@@ -121,8 +124,6 @@ export class SearchResults extends Component {
             admission: school["2015.admissions.admission_rate.overall"],
             highestDegree: getDegree[school["school.degrees_awarded.highest"]],
             ownership: getOwnership[school["school.ownership"]]
-
-
           }
           
         }
@@ -137,20 +138,23 @@ export class SearchResults extends Component {
         <BootstrapTable data={ this.data } selectRow={ selectRowProp } search exportCSV={ true } pagination striped>
           {/* <TableHeaderColumn row='0' rowSpan='2' dataField='id' isKey={ true } dataSort filter={ { type: 'TextFilter', delay: 400 } }>School ID</TableHeaderColumn> */}
           <TableHeaderColumn row='0' colSpan='6'>Basic School Info</TableHeaderColumn>
-          <TableHeaderColumn row='1' isKey dataField='name' dataSort width={200} filter={ { type: 'TextFilter', delay: 400 } }>Name</TableHeaderColumn>
+          <TableHeaderColumn row='1' isKey dataField='name' dataSort width={"200"} filter={ { type: 'TextFilter', delay: 400 } }>Name</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='size' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
           dataFormat={ formatFloat }>Size</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='location' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Location</TableHeaderColumn>
-          <TableHeaderColumn id="state" row='1' dataField='state' dataSort width={80} filter={ { type: 'TextFilter', delay: 400 } }>ST</TableHeaderColumn>
+          <TableHeaderColumn id="state" row='1' dataField='state' dataSort width={"80"} filter={ { type: 'TextFilter', delay: 400 } }>ST</TableHeaderColumn>
           {/* <TableHeaderColumn row='1' dataField='admission' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Admission %</TableHeaderColumn> */}
           <TableHeaderColumn row='1' dataField='highestDegree' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Highest Degree</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='ownership' dataSort filter={ { type: 'TextFilter', delay: 400 } }>School Type</TableHeaderColumn>
 
           <TableHeaderColumn row='0' colSpan='3'>School Cost Information</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='inState' dataSort width={90} filter={ { type: 'TextFilter', delay: 400 } }>In-State</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='outState' dataSort width={140} filter={ { type: 'TextFilter', delay: 400 } }>Out-Of-State</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='inState' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>In-State</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='outState' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
+          dataFormat={ formatFloat }>Out-of-State</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='netCost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
-          dataFormat={ formatFloat }>Avg Net Cost</TableHeaderColumn>
+          dataFormat={ formatFloat }>Avg Net</TableHeaderColumn>
+          
 
           
           
