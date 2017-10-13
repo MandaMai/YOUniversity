@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     renderSchools: () => {
-      dispatch(getSchools("WA", "", "70000"))
+      dispatch(getSchools("WA", ""))
     }
   }
 }
