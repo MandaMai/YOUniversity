@@ -16,7 +16,7 @@ import youniversity from './reducers'
 import Dashboard from './components/dashboard/Dashboard'
 import EditPreferences from './components/editpreferences/EditPreferences'
 import Favorites from './components/favorites/Favorites'
-import NewUser from './components/newuser/NewUser'
+import User from './containers/User'
 import Landing from './components/landing/Landing'
 import SchoolDetails from './components/schooldetails/Schooldetails'
 
@@ -36,7 +36,7 @@ ReactDOM.render(
       <Router history={history}>
         <Route path="/" component={App}>
           {/* <IndexRoute component={Character}/> */}
-          <Route path="newuser" component={NewUser} />
+          <Route path="user" component={User} />
           <IndexRoute component={Landing}/>
           <Route path="dashboard" component={Dashboard}/>
           <Route path="editpreferences" component={EditPreferences} />
@@ -47,7 +47,7 @@ ReactDOM.render(
           {/* <Route path="/testagain/:id" component={TestAgain}/> */}
          
 
-          <Route path="checkbox" component={Checkbox} />
+          {/* <Route path="checkbox" component={Checkbox} /> */}
           <Route path="currentpreferences" component={CurrentPreferences} />
           
         </Route>

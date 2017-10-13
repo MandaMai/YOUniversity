@@ -6,13 +6,33 @@ import './CurrentPreferences.css';
 
 
 
-export class CurrentPreferences extends Component {
+class CurrentPreferences extends Component {
+    dataToSend = [];
 
+    componentDidMount() {
+        if (!this.dataToSend.length) {
+            this.props.renderUser()
+        }
+
+    }
 
     render() {
+        console.log(`this.props.user is ${JSON.stringify(this.props.user)}`)
+        if (this.props.user && this.props.user.user) {
+            this.dataToSend = this.props.user.user.map(
+                user => {
+                    return {
+                        id: user.id,
+                        firstName: user['user.firstname'],
+                  
+                    }
+                }
+            )
 
 
         return (
+
+
 
             <div>
             <Grid>
@@ -39,6 +59,4 @@ export class CurrentPreferences extends Component {
             </div>
         );
     }
-}
-
-export default CurrentPreferences;
+}}
