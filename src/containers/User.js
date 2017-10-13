@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { postUser } from '../actions/user'
-import { NewUser } from '../components/newuser/NewUser'
+import NewUser from '../components/newuser/NewUser'
 
 const mapStateToProps = state => {
     return {
@@ -10,8 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        renderUser: () => {
-            dispatch(postUser("WA", "education", "7000"))
+        createUser: (userData) => {
+            dispatch(postUser(userData))
         }
     }
 }

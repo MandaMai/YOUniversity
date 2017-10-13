@@ -10,9 +10,7 @@ class App extends Component {
       <div>
 
         {/* <Navigation /> */}
-       
         {this.props.children}
-        <User />
       </div>
     );
   }
