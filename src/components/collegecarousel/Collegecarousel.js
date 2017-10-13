@@ -40,7 +40,7 @@ class Collegecarousel extends Component {
                     <h1>Welcome to YOUniversity</h1>
                     <h2>Empowering you to find your DREAM School</h2>
                     <h2>Login or create your new user account and.....</h2>
-                    <h1>Begin your Academic Adventure</h1>
+                    <h1> Begin your Academic Adventure</h1>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
