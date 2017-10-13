@@ -1,4 +1,4 @@
-form {
+/* form {
     display: grid;
     padding: 1em;
     background: #f9f9f9;
@@ -40,5 +40,5 @@ input {
 input:focus {
     outline: 3px solid yellow;
     width: 100%;
-}
+} */
 

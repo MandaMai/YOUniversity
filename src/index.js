@@ -18,6 +18,7 @@ import EditPreferences from './components/editpreferences/EditPreferences'
 import Favorites from './components/favorites/Favorites'
 import NewUser from './components/newuser/NewUser'
 import Landing from './components/landing/Landing'
+import SchoolDetails from './components/schooldetails/Schooldetails'
 
 
 import Checkbox from './components/checkbox/Checkbox'
@@ -40,6 +41,8 @@ ReactDOM.render(
           <Route path="editpreferences" component={EditPreferences} />
           <Route path="favorites" component={Favorites} />
           <Route path="newuser" component={NewUser}/>
+          <Route path="schooldetails" component={SchoolDetails}/>
+          <Route path="schooldetails/:id" component={SchoolDetails}/>
           {/* <Route path="/testagain/:id" component={TestAgain}/> */}
          
 
