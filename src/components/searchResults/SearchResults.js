@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import './SearchResults.css'
+import { Link } from 'react-router';
 let order = 'desc';
+
 // const products = [];
 
 // function addProducts(quantity) {
@@ -74,6 +76,16 @@ export class SearchResults extends Component {
     console.log(this.props)
     this.props.renderSchools()
   }
+
+  linkFormatter(cell, row) {
+    console.log(cell)
+    return '<a href="http://'+cell+'" target="_blank">'+cell+'</a>';
+  }
+
+  internalLinkFormatter(cell, row) {
+    console.log(cell)
+    return '<a href="'+cell+'" target="_blank">'+cell+'</a>';
+  }
  
   render() {
     const getDegree = {
@@ -90,8 +102,6 @@ export class SearchResults extends Component {
     3: "Private F-P"
   }
 
-  
-
   const getLocale = {
     11:"City: 250k+",
     12:"City: 100-250k",
@@ -107,11 +117,15 @@ export class SearchResults extends Component {
     43:"Rural: Remote"
   }
 
+  
+
     console.log(`this.props.schools is ${JSON.stringify(this.props.schools)}`)
     if(this.props.schools && this.props.schools.schools){
       this.data = this.props.schools.schools.map(
         school => {
           let temp = parseInt(school['2015.cost.avg_net_price.public'])
+          let nameLink = school['school.school_url']
+
           return { 
             id: school.id,
             name: school['school.name'],
@@ -123,7 +137,8 @@ export class SearchResults extends Component {
             state: school["school.state"],
             admission: school["2015.admissions.admission_rate.overall"],
             highestDegree: getDegree[school["school.degrees_awarded.highest"]],
-            ownership: getOwnership[school["school.ownership"]]
+            ownership: getOwnership[school["school.ownership"]],
+            schoolUrl: nameLink
           }
           
         }
@@ -136,16 +151,17 @@ export class SearchResults extends Component {
       
       <div>
         <BootstrapTable data={ this.data } selectRow={ selectRowProp } search exportCSV={ true } pagination striped>
-          {/* <TableHeaderColumn row='0' rowSpan='2' dataField='id' isKey={ true } dataSort filter={ { type: 'TextFilter', delay: 400 } }>School ID</TableHeaderColumn> */}
-          <TableHeaderColumn row='0' colSpan='6'>Basic School Info</TableHeaderColumn>
-          <TableHeaderColumn row='1' isKey dataField='name' dataSort width={"200"} filter={ { type: 'TextFilter', delay: 400 } }>Name</TableHeaderColumn>
+          {<TableHeaderColumn row='0' rowSpan='2' dataField='id' hidden isKey={ true } dataSort filter={ { type: 'TextFilter', delay: 400 } }>School ID</TableHeaderColumn>}
+          <TableHeaderColumn row='0' colSpan='7'>Basic School Info</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='name' dataSort width={"300"} filter={ { type: 'TextFilter', delay: 400 } }>Name</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='size' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
           dataFormat={ formatFloat }>Size</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='location' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Location</TableHeaderColumn>
           <TableHeaderColumn id="state" row='1' dataField='state' dataSort width={"80"} filter={ { type: 'TextFilter', delay: 400 } }>ST</TableHeaderColumn>
-          {/* <TableHeaderColumn row='1' dataField='admission' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Admission %</TableHeaderColumn> */}
+          {<TableHeaderColumn row='1' dataField='admission' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Admission %</TableHeaderColumn>}
           <TableHeaderColumn row='1' dataField='highestDegree' dataSort filter={ { type: 'TextFilter', delay: 400 } }>Highest Degree</TableHeaderColumn>
-          <TableHeaderColumn row='1' dataField='ownership' dataSort filter={ { type: 'TextFilter', delay: 400 } }>School Type</TableHeaderColumn>
+          <TableHeaderColumn row='1' dataField='schoolUrl' dataFormat={this.linkFormatter} dataSort filter={ { type: 'TextFilter', delay: 400 } }>School URL</TableHeaderColumn>
+    
 
           <TableHeaderColumn row='0' colSpan='3'>School Cost Information</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='inState' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
@@ -157,6 +173,8 @@ export class SearchResults extends Component {
           
 
           
+
+  
           
 
           
