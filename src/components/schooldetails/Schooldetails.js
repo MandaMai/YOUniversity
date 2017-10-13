@@ -6,61 +6,77 @@ import Navigation from '../navigation/Navigation';
 import './Schooldetails.css';
 
 let college = {
-    "metadata": {
-        "total": 1,
-        "page": 0,
-        "per_page": 20
-    },
-    "results": [
-        {
-            "2015.student.demographics.women": 0.528,
-            "2015.cost.net_price.private.by_income_level.0-48000": 10551,
-            "2015.aid.federal_loan_rate": 0.3763,
-            "2015.student.size": 9491,
-            "2015.aid.pell_grant_rate": 0.125,
-            "2015.completion.completion_rate_4yr_150nt": 0.9242,
-            "school.city": "Chestnut Hill",
-            "school.degrees_awarded.highest": 4,
-            "2015.student.retention_rate.four_year.full_time": 0.95,
-            "2015.cost.tuition.out_of_state": 49324,
-            "2015.aid.median_debt.completers.overall": 19000,
-            "2015.admissions.sat_scores.average.overall": 1380,
-            "school.state": "MA",
-            "2015.admissions.admission_rate.overall": 0.2851,
-            "2015.academics.program_available.bachelors": true,
-            "2015.cost.tuition.in_state": 49324,
-            "2015.aid.loan_principal": 19000,
-            "2015.cost.net_price.private.by_income_level.48001-75000": 15140,
-            "2015.cost.net_price.private.by_income_level.110001-plus": 46134,
-            "school.name": "Boston College",
-            "school.state_fips": 25,
-            "2015.academics.program_available.assoc": false,
-            "2015.aid.median_debt.noncompleters": 8750,
-            "2015.cost.attendance.academic_year": 62968,
-            "2015.student.demographics.men": 0.472,
-            "2015.student.demographics.median_family_income": 100535,
-            "2015.student.grad_students": 4558,
-            "school.school_url": "www.bc.edu",
-            "school.price_calculator_url": "https://npc.collegeboard.org/student/app/bc",
-            "2015.cost.net_price.private.by_income_level.75001-110000": 23514,
-            "school.degrees_awarded.predominant": 3,
-            "school.locale": 22,
-            "2015.cost.avg_net_price.overall": 33661,
-            "2015.cost.avg_net_price.private": 33661,
-            "2015.cost.avg_net_price.public": null,
-            "2015.cost.tuition.program_year": null,
-            "2015.completion.title_iv.completed_by.4yrs": null,
-            "2015.cost.net_price.public.by_income_level.0-48000": null,
-            "2015.cost.net_price.public.by_income_level.48001-75000": null,
-            "2015.cost.net_price.public.by_income_level.75001-110000": null,
-            "2015.cost.net_price.public.by_income_level.110001-plus": null
-        }
-    ]
+  "metadata": {
+      "total": 1,
+      "page": 0,
+      "per_page": 20
+  },
+  "results": [
+      {
+          "2015.student.demographics.women": 0.528,
+          "2015.aid.federal_loan_rate": 0.3763,
+          "2015.student.size": 9491,
+          "2015.aid.pell_grant_rate": 0.125,
+          "2015.completion.completion_rate_4yr_150nt": 0.9242,
+          "school.city": "Chestnut Hill",
+          "school.degrees_awarded.highest": 4,
+          "2015.student.retention_rate.four_year.full_time": 0.95,
+          "2015.cost.tuition.out_of_state": 49324,
+          "2015.aid.median_debt.completers.overall": 19000,
+          "2015.admissions.sat_scores.average.overall": 1380,
+          "2015.cost.net_price.private.by_income_level.0-30000": 11600,
+          "school.state": "MA",
+          "2015.admissions.admission_rate.overall": 0.2851,
+          "2015.academics.program_available.bachelors": true,
+          "2015.cost.tuition.in_state": 49324,
+          "2015.aid.loan_principal": 19000,
+          "2015.cost.net_price.private.by_income_level.48001-75000": 15140,
+          "2015.cost.net_price.private.by_income_level.110001-plus": 46134,
+          "school.name": "Boston College",
+          "2015.cost.net_price.private.by_income_level.30001-48000": 9937,
+          "school.state_fips": 25,
+          "2015.academics.program_available.assoc": false,
+          "2015.aid.median_debt.noncompleters": 8750,
+          "2015.cost.attendance.academic_year": 62968,
+          "school.ownership": 2,
+          "2015.student.demographics.men": 0.472,
+          "2015.student.demographics.median_family_income": 100535,
+          "2015.student.grad_students": 4558,
+          "school.school_url": "www.bc.edu",
+          "school.price_calculator_url": "https://npc.collegeboard.org/student/app/bc",
+          "2015.cost.net_price.private.by_income_level.75001-110000": 23514,
+          "school.degrees_awarded.predominant": 3,
+          "school.locale": 13,
+          "2015.cost.avg_net_price.overall": 33661,
+          "2015.cost.avg_net_price.private": 33661,
+          "2015.cost.avg_net_price.public": null,
+          "2015.cost.tuition.program_year": null,
+          "2015.completion.title_iv.completed_by.4yrs": null,
+          "2015.cost.net_price.public.by_income_level.0-30000": null,
+          "2015.cost.net_price.public.by_income_level.30001-48000": null,
+          "2015.cost.net_price.public.by_income_level.48001-75000": null,
+          "2015.cost.net_price.public.by_income_level.75001-110000": null,
+          "2015.cost.net_price.public.by_income_level.110001-plus": null
+      }
+  ]
 }
+
+let schoolURL = 'http://'+college.results[0]["school.school_url"]
 
 console.log(college.results[0]["school.name"])
 
 class SchoolDetails extends Component {
+
+
+  getCostValue(privateValue, publicValue) {
+    if (privateValue) {
+      return privateValue
+    }
+    else {
+      return publicValue
+    }
+    
+  }
 
   render() {
 
@@ -82,8 +98,8 @@ class SchoolDetails extends Component {
     
       const getOwnership = {
         1: "Public",
-        2: "Private N-P",
-        3: "Private F-P"
+        2: "Private Non-Profit",
+        3: "Private For-Profit"
       }
 
       
@@ -102,6 +118,8 @@ class SchoolDetails extends Component {
         42:"Rural: Distant (rural territory more than 5 miles but up to 25 miles from an urbanized area or more than 2.5 and up to 10 miles from an urban cluster)",
         43:"Rural: Remote (rural territory more than 25 miles from an urbanized area and more than 10 miles from an urban cluster)"
       }
+
+
     return (
 
       <div>
@@ -113,12 +131,13 @@ class SchoolDetails extends Component {
 
         <div className="details-summary details-card">
           <h2>School Summary</h2>
-          <p>Website URL: {college.results[0]["school.school_url"]}</p>
+          <p>Website URL: <a href={schoolURL}>{college.results[0]["school.school_url"]}</a></p>
           <p>State:  {college.results[0]["school.state"]}</p>
           <p>City:  {college.results[0]["school.city"]}</p>
           <p>School size (Enrollement):  {college.results[0]["2015.student.size"]}</p>
           <p>Highest Degree Offered:  {getDegree[college.results[0]["school.degrees_awarded.highest"]]}</p>
           <p>Predominant Degree Offered:  {getPredominant[college.results[0]["school.degrees_awarded.predominant"]]}</p>
+          <p>Institution Type:  {getOwnership[college.results[0]["school.ownership"]]}</p>
           <p>Locale Description:  {getLocale[college.results[0]["school.locale"]]}</p>
         </div>
 
@@ -136,11 +155,47 @@ class SchoolDetails extends Component {
 
         <div className="financial-data details-card">
           <h2>Financial Data</h2>
-          <p>Acceptence Rate: {Math.round((college.results[0]["2015.admissions.admission_rate.overall"])*100)}%</p>
-          <p>Average SAT Score: {college.results[0]["2015.admissions.sat_scores.average.overall"]}</p>
-          <p>Retention Rate: {Math.round((college.results[0]["2015.student.retention_rate.four_year.full_time"])*100)}</p>
-          <p>Completion Rate: {Math.round((college.results[0]["2015.completion.completion_rate_4yr_150nt"])*100)}</p>
-          <p>Median Family Income: {college.results[0]["2015.student.demographics.median_family_income"]}</p>
+          <p>Tuition In-State: ${college.results[0]["2015.cost.tuition.in_state"]}</p>
+          <p>Tuition Out-of-State: ${college.results[0]["2015.cost.tuition.out_of_state"]}</p>
+          <p>Cost of Attendance: ${college.results[0]["2015.cost.attendance.academic_year"]}</p>
+          <p>Average Net Price: ${college.results[0]["2015.cost.avg_net_price.overall"]}</p>
+          <p>Average Debt Upon Completion: ${college.results[0]["2015.aid.median_debt.completers.overall"]}</p>
+          <p>Percentage of Students with Federal Loans: {Math.round((college.results[0]["2015.aid.federal_loan_rate"])*100)}%</p>
+          <p>Percentage of Students with Pell Grants: {Math.round((college.results[0]["2015.aid.pell_grant_rate"])*100)}%</p>
+        </div>
+
+        <div className="financial-breakdown details-card">
+          <h2>Net Price by Family Income</h2>
+          <table>
+            <thead>
+              <tr>
+                <td>Family Income Range</td>
+                <td>Net Price for Range</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$0 to $30000</td>
+                <td>${(college.results[0]["2015.cost.net_price.public.by_income_level.0-30000"]) ? college.results[0]["2015.cost.net_price.public.by_income_level.0-30000"] : college.results[0]["2015.cost.net_price.private.by_income_level.0-30000"]}</td>
+              </tr>
+              <tr>
+                <td>$300001 to $48000</td>
+                <td>${(college.results[0]["2015.cost.net_price.public.by_income_level.30001-48000"]) ? college.results[0]["2015.cost.net_price.public.by_income_level.30001-48000"] : college.results[0]["2015.cost.net_price.private.by_income_level.30001-48000"]}</td>
+              </tr>
+              <tr>
+                <td>$48001 to $75000</td>
+                <td>${(college.results[0]["2015.cost.net_price.public.by_income_level.48001-75000"]) ? college.results[0]["2015.cost.net_price.public.by_income_level.48001-75000"] : college.results[0]["2015.cost.net_price.private.by_income_level.48001-75000"]}</td>
+              </tr>
+              <tr>
+                <td>$75000 to $110000</td>
+                <td>${(college.results[0]["2015.cost.net_price.public.by_income_level.75001-110000"]) ? college.results[0]["2015.cost.net_price.public.by_income_level.75001-110000"] : college.results[0]["2015.cost.net_price.private.by_income_level.75001-110000"]}</td>
+              </tr>
+              <tr>
+                <td>More than $110000</td>
+                <td>${(college.results[0]["2015.cost.net_price.public.by_income_level.110001-plus"]) ? college.results[0]["2015.cost.net_price.public.by_income_level.110001-plus"] : college.results[0]["2015.cost.net_price.private.by_income_level.110001-plus"]}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
       </div>
