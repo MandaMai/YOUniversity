@@ -1,6 +1,7 @@
 import request from 'superagent';
 
-const baseUrl = 'https://youniversity1.herokuapp.com/user';
+//added cors-anywhere to deal with the cors issues on your backend
+const baseUrl = 'https://cors-anywhere.herokuapp.com/https://youniversity1.herokuapp.com/user';
 
 export function postUser(dataToSend = {
   "firstName": "Harry",
