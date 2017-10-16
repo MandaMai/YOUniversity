@@ -1,3 +1,4 @@
+// reducer
 import _ from 'lodash';
 
 const characters = (state = {}, action) => {

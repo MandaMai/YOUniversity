@@ -7,56 +7,46 @@ import './CurrentPreferences.css';
 
 
 class CurrentPreferences extends Component {
-    dataToSend = [];
+  currentUser;
 
-    componentDidMount() {
-        if (!this.dataToSend.length) {
-            this.props.renderUser()
-        }
 
-    }
-
+  
     render() {
-        console.log(`this.props.user is ${JSON.stringify(this.props.user)}`)
-        if (this.props.user && this.props.user.user) {
-            this.dataToSend = this.props.user.user.map(
-                user => {
-                    return {
-                        id: user.id,
-                        firstName: user['user.firstname'],
-                  
-                    }
-                }
-            )
+       
+        this.currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
-
+        
         return (
 
-
-
             <div>
-            <Grid>
-                <Row className="show-grid">
-                    <Col xs={12} md={8}><code>&lt;{'Col xs={12} md={8}'} /&gt;</code></Col>
-                    <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
-                </Row>
+             
+                < div className = "dashboardheader-container" >
+                    <Col sm={12} md={12} lg={12} className="dashboardheading">
+                        <h1>Hey User!</h1>
+                        {this.currentUser.id}
+                    </Col>
 
-                <Row className="show-grid">
-                    <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
-                    <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
-                    <Col xsHidden md={4}><code>&lt;{'Col xsHidden md={4}'} /&gt;</code></Col>
-                </Row>
+                    <Col sm={12} md={6} lg={6} className="currentpreferences display">
+                        <h2>Your current preferences:</h2>
+                     
+                    </Col>
 
-                <Row className="show-grid">
-                    <Col xs={6} xsOffset={6}><code>&lt;{'Col xs={6} xsOffset={6}'} /&gt;</code></Col>
-                </Row>
+                    <Col sm={12} md={6} lg={6} className="favorites display">
+                        <h2>Favorites List:</h2>
+                        
+                    </Col>
+                    <Col sm={12} md={6} lg={6} className="padding">
+                       {/* padding */}
 
-                <Row className="show-grid">
-                    <Col md={6} mdPush={6}><code>&lt;{'Col md={6} mdPush={6}'} /&gt;</code></Col>
-                    <Col md={6} mdPull={6}><code>&lt;{'Col md={6} mdPull={6}'} /&gt;</code></Col>
-                </Row>
-            </Grid>
+                    </Col>
+                 
+                </div>
+
             </div>
+
+           
         );
     }
-}}
+}
+
+export default CurrentPreferences;

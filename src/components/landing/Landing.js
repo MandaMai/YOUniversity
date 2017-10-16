@@ -8,7 +8,7 @@ import './Landing.css'
 class Landing extends Component {
   
   routeNewUser() {
-    browserHistory.push('/newuser');
+    browserHistory.push('/user');
   }
 
   routeDashboard() {

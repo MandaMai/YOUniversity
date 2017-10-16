@@ -1,3 +1,4 @@
+// actions
 import request from 'superagent';
 
 //added cors-anywhere to deal with the cors issues on your backend
@@ -23,9 +24,16 @@ export function postUser(dataToSend = {
         (error, response) => {
           console.log(`User Create response is: ${JSON.stringify(response)}`)
           if(!error) {
+            localStorage.setItem("currentUser", JSON.stringify(response.body))
             dispatch({ type: `POST_USER`, user: response.body });
           }
         }
       )
   }
 }
+
+
+
+// reducer and container for amanda's app 
+
+// link what's in the state to the container componenewt

@@ -14,8 +14,7 @@ class Dashboard extends Component {
       <div>
         
         <Navigation />
-        <h2 className="welcome">Hey there, INSERT NAME HERE</h2>
-        {/* <CurrentPreferences /> */}
+       <CurrentPreferences />
         {/* <SearchResults /> */}
         <Schools />
 

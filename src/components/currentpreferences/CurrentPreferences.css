@@ -1,6 +1,17 @@
-    .placeholder {
-    border: 2 px;
-    padding: 100px;
-    background-color: red;
-    width: 100%;
+.dashboardheader-container {
+    background-color: rgb(230, 223, 223)
 }
+
+.dashboardheading {
+    text-align: center;
+    background-color: rgb(209, 135, 135)
+}
+
+.display {
+    height: 100px;
+    text-align: center;
+    background-color: rgb(212, 168, 168)
+}
+
+
+

@@ -1,3 +1,4 @@
+// container
 import { connect } from 'react-redux'
 import { postUser } from '../actions/user'
 import NewUser from '../components/newuser/NewUser'
