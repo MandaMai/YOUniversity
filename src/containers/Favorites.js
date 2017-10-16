@@ -16,9 +16,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const Favorites = connect(
+const FavoritesItems = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Favorites)
 
-export default Favorites
+export default FavoritesItems

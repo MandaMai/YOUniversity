@@ -17,9 +17,9 @@ export function getFavorites(){
   return dispatch => {
     request.get(`${baseUrl}`).end(
       (error, response) => {
-        console.log(`Response is: ${JSON.stringify(response.body.results)}`)
+        console.log(`Response is: ${JSON.stringify(response.body.schools)}`)
         if(!error) {
-          dispatch({ type: `GET_FAVORITES`, schools: response.body.results });
+          dispatch({ type: `GET_FAVORITES`, schools: response.body.schools });
         }
       }
     );

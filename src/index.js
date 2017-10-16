@@ -15,7 +15,7 @@ import youniversity from './reducers'
 
 import Dashboard from './components/dashboard/Dashboard'
 import EditPreferences from './components/editpreferences/EditPreferences'
-import Favorites from './components/favorites/Favorites'
+import UserFavorites from './components/userFavorites/UserFavorites'
 import User from './containers/User'
 import Landing from './components/landing/Landing'
 
@@ -43,7 +43,7 @@ ReactDOM.render(
           <IndexRoute component={Landing}/>
           <Route path="dashboard" component={Dashboard}/>
           <Route path="editpreferences" component={EditPreferences} />
-          <Route path="favorites" component={Favorites} />
+          <Route path="favorites" component={UserFavorites} />
           {/* <Route path="newuser" component={NewUser}/> */}
           <Route path="schooldetails" component={Schooldetails}/>
           <Route path="schooldetails/:id" component={Schooldetails}/>
