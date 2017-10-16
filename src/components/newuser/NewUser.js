@@ -30,11 +30,16 @@ function FieldGroup({ id, label, help, ...props }) {
   );
 }
 
+
 class NewUser extends Component {
 
 
 routeBacktoLanding() {
   browserHistory.push('/#');
+}
+
+routetoDashboard() {
+  browserHistory.push('/dashboard');
 }
 
 //method to render the option values for a dropdown
@@ -192,7 +197,7 @@ handleFormSubmit = formSubmitEvent => {
        
 {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 
-<Button  className="btn btn-default"type="submit">Create Profile</Button>
+            <Button onClick={this.routetoDashboard.bind(this)}  className="btn btn-default"type="submit">Create Profile</Button>
 
 
  
