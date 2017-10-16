@@ -18,7 +18,9 @@ import EditPreferences from './components/editpreferences/EditPreferences'
 import Favorites from './components/favorites/Favorites'
 import User from './containers/User'
 import Landing from './components/landing/Landing'
+
 import SchoolDetails from './components/schooldetails/SchoolDetails'
+import NewUser from './components/newuser/NewUser'
 
 
 import Checkbox from './components/checkbox/Checkbox'
