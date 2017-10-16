@@ -15,7 +15,7 @@ class CurrentPreferences extends Component {
        
         this.currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
-        
+        console.log(this.currentUser)
         return (
 
             <div>
@@ -24,6 +24,9 @@ class CurrentPreferences extends Component {
                     <Col sm={12} md={12} lg={12} className="dashboardheading">
                         <h1>Hey User!</h1>
                         {this.currentUser.id}
+                 
+                        {this.currentUser.firstName}
+                        {this.currentUser.password}
                     </Col>
 
                     <Col sm={12} md={6} lg={6} className="currentpreferences display">
