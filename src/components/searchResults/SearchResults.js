@@ -30,6 +30,7 @@ function onRowSelect(row, isSelected, e, rowIndex) {
   }
   console.log(e);
   alert(`Selected: ${isSelected}, rowIndex: ${rowIndex}, row: ${rowStr}`);
+  alert("This is where the school needs to be added to the list");
 }
 
 function onSelectAll(isSelected, rows) {
