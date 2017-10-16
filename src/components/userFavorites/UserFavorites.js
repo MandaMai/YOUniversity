@@ -4,8 +4,9 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import Navigation from '../navigation/Navigation';
 
 import CurrentPreferences from '../currentpreferences/CurrentPreferences';
-import Schools from '../../containers/School';
-import './Dashboard.css';
+
+import './UserFavorites.css';
+import Favorites from '../../containers/Favorites';
 
 class UserFavorites extends Component {
   render() {
@@ -14,7 +15,7 @@ class UserFavorites extends Component {
       <div>
         
         <Navigation />
-        <h2 className="welcome">Hey there, INSERT NAME HERE</h2>
+        <h2 className="welcome">Hey there, INSERT NAME HERE, Here are your favorite Schools!</h2>
         {/* <CurrentPreferences /> */}
         {/* <SearchResults /> */}
         <Favorites />
