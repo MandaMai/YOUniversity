@@ -98,6 +98,8 @@ handleFormSubmit = formSubmitEvent => {
         
   }
 
+  console.log(formData)
+
   //make the api call
   this.props.createUser(formData)
 
@@ -197,7 +199,7 @@ handleFormSubmit = formSubmitEvent => {
        
 {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 
-            <Button onClick={this.routetoDashboard.bind(this)}  className="btn btn-default"type="submit">Create Profile</Button>
+            <Button  className="btn btn-default"type="submit">Create Profile</Button>
 
 
  
@@ -206,7 +208,8 @@ handleFormSubmit = formSubmitEvent => {
       </div>
       </div>
 
-    );
+);
+   
   }
 }
 

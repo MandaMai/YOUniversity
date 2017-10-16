@@ -22,11 +22,11 @@ class CurrentPreferences extends Component {
              
                 < div className = "dashboardheader-container" >
                     <Col sm={12} md={12} lg={12} className="dashboardheading">
-                        <h1>Hey User!</h1>
-                        {this.currentUser.id}
+                        <h1>Hey {this.currentUser.firstName}!</h1>
+           
                  
-                        {this.currentUser.firstName}
-                        {this.currentUser.password}
+                        
+                       
                     </Col>
 
                     <Col sm={12} md={6} lg={6} className="currentpreferences display">
