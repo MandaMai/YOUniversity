@@ -18,13 +18,14 @@ import EditPreferences from './components/editpreferences/EditPreferences'
 import Favorites from './components/favorites/Favorites'
 import User from './containers/User'
 import Landing from './components/landing/Landing'
-import SchoolDetails from './components/schooldetails/Schooldetails'
+import SchoolDetails from './components/schooldetails/SchoolDetails'
 
 
 import Checkbox from './components/checkbox/Checkbox'
 import CurrentPreferences from './components/currentpreferences/CurrentPreferences'
 
 import School from './containers/School'
+import Schooldetails from './containers/Schooldetails'
 
 
 let store = createStore(youniversity, applyMiddleware(thunk))
@@ -42,8 +43,8 @@ ReactDOM.render(
           <Route path="editpreferences" component={EditPreferences} />
           <Route path="favorites" component={Favorites} />
           {/* <Route path="newuser" component={NewUser}/> */}
-          <Route path="schooldetails" component={SchoolDetails}/>
-          <Route path="schooldetails/:id" component={SchoolDetails}/>
+          <Route path="schooldetails" component={Schooldetails}/>
+          <Route path="schooldetails/:id" component={Schooldetails}/>
           {/* <Route path="/testagain/:id" component={TestAgain}/> */}
          
 
