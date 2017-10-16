@@ -3,7 +3,7 @@ import { Grid, Col, Link } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 import Navigation from '../navigation/Navigation';
 
-import './SchoolDetails.css';
+import './Schooldetails.css';
 
 // let college = {
 //   "metadata": {
