@@ -19,7 +19,7 @@ import Favorites from './components/favorites/Favorites'
 import User from './containers/User'
 import Landing from './components/landing/Landing'
 
-import SchoolDetails from './components/schooldetails/SchoolDetails'
+import SchoolDetails from './components/schooldetails/Schooldetails'
 import NewUser from './components/newuser/NewUser'
 
 

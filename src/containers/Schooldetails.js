@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { getSchooldetails } from '../actions/schooldetails'
-import { SchoolDetails } from '../components/schooldetails/SchoolDetails'
+import { SchoolDetails } from '../components/schooldetails/Schooldetails'
 
 const mapStateToProps = state => {
   return {
