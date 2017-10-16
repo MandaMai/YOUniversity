@@ -41,7 +41,7 @@ ReactDOM.render(
           <Route path="dashboard" component={Dashboard}/>
           <Route path="editpreferences" component={EditPreferences} />
           <Route path="favorites" component={Favorites} />
-          <Route path="newuser" component={NewUser}/>
+          {/* <Route path="newuser" component={NewUser}/> */}
           <Route path="schooldetails" component={SchoolDetails}/>
           <Route path="schooldetails/:id" component={SchoolDetails}/>
           {/* <Route path="/testagain/:id" component={TestAgain}/> */}
