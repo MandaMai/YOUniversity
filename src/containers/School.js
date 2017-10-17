@@ -10,9 +10,16 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
+  this.currentUser = JSON.parse(localStorage.getItem("currentUser"))
+  let majorItem;
+  if(this.currentUser.preferences.major==="all"){
+    majorItem = ""
+  }else{
+    majorItem = this.currentUser.preferences.major
+  }
   return {
     renderSchools: () => {
-      dispatch(getSchools("WA", ""))
+      dispatch(getSchools(this.currentUser.preferences.location, majorItem))
     }
   }
 }
