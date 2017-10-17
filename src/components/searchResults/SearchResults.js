@@ -75,6 +75,12 @@ export class SearchResults extends Component {
 
   componentDidMount() {
     if(!this.data.length){
+      // let's get preferences from user in state
+      if (this.props.user) {
+        let currentuser = this.props.user.user
+        console.log(`Here is  the current user:  ${JSON.stringify(this.props.user)}`)
+        //console.log("Here is  the current user: " + this.props.user.user["preferences.location"])
+      }
       this.props.renderSchools()
     }
   }
@@ -119,7 +125,9 @@ export class SearchResults extends Component {
     43:"Rural: Remote"
   }
 
-    console.log(`this.props.schools is ${JSON.stringify(this.props.schools)}`)
+    // console.log(`this.props.schools is ${JSON.stringify(this.props.schools)}`)
+    
+
     if(this.props.schools && this.props.schools.schools){
       this.data = this.props.schools.schools.map(
         school => {
