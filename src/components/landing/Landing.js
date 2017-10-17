@@ -34,8 +34,6 @@ class Landing extends Component {
     //looping over all the fields from the form and working with each one 
     //the variable input represents the form field we are currently working with
     for (const input of formSubmitEvent.target) {
-      console.log("value: " + input.value)
-      console.log("name: " + input.name)
       //lets skip this iteration of the loop if they field was left blank
       if(input.value){
         
@@ -43,15 +41,15 @@ class Landing extends Component {
       // needs to be a comma separated string with all the selected values together
             formData[input.name] = input.value
       }
-          
-    console.log(formData)
-    console.log(this.props)
+    }
     let myJSON = JSON.stringify(formData);
     console.log(myJSON);
+    
     //make the api call
-    this.props.loginUser(formData)
-  }
-}
+    this.props.loginUser(myJSON)
+    console.log(localStorage.getItem("currentUser"))
+    this.routeDashboard(localStorage.getItem("currentUser"));
+    }
   
   render() {
     return (

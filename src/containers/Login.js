@@ -12,6 +12,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         loginUser: (userData) => {
+            console.log("Userdata being sent: " + userData)
             dispatch(putLogin(userData))
         }
     }

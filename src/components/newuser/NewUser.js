@@ -31,12 +31,13 @@ function FieldGroup({ id, label, help, ...props }) {
 }
 
 
+
 class NewUser extends Component {
 
-
 routeBacktoLanding() {
-  browserHistory.push('/#');
-}
+    browserHistory.push('/#');
+  }
+
 
 routetoDashboard() {
   //Put login here
@@ -104,7 +105,7 @@ handleFormSubmit = formSubmitEvent => {
 
   //make the api call
   this.props.createUser(formData)
-
+  this.routeBacktoLanding()
 }
 
 /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// 
