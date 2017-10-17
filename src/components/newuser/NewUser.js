@@ -16,7 +16,7 @@ const preferencesFields = Object.keys(new PreferencesModel);
 
 export const states = ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV','WY'];
 
-export const majors = ['education', 'mathematics', 'business_marketing', 'communications_technology', 'language', 'visual_performing', 'engineering_technology', 'parks_recreation_fitness', 'agriculture', 'security_law_enforcement', 'computer', 'precision_production', 'humanities', 'library', 'psychology', 'social_science', 'legal', 'english', 'construction', 'military', 'communication', 'public_administration_social_service', 'architecture', 'ethnic_cultural_gender', 'resources', 'health', 'engineering', 'history', 'theology_religious_vocation', 'transportation', 'physical_science', 'science_technology', 'biological', 'family_consumer_science', 'philosophy_religious', 'personal_culinary', 'multidiscipline', 'mechanic_repair_technology']
+export const majors = ['all', 'education', 'mathematics', 'business_marketing', 'communications_technology', 'language', 'visual_performing', 'engineering_technology', 'parks_recreation_fitness', 'agriculture', 'security_law_enforcement', 'computer', 'precision_production', 'humanities', 'library', 'psychology', 'social_science', 'legal', 'english', 'construction', 'military', 'communication', 'public_administration_social_service', 'architecture', 'ethnic_cultural_gender', 'resources', 'health', 'engineering', 'history', 'theology_religious_vocation', 'transportation', 'physical_science', 'science_technology', 'biological', 'family_consumer_science', 'philosophy_religious', 'personal_culinary', 'multidiscipline', 'mechanic_repair_technology']
 
 export const cost = [ '$0-2,000', 'up to $5,000', 'up to $10,000', 'up to $30,000', 'up to $50,000', 'any' ]
 
@@ -168,8 +168,11 @@ handleFormSubmit = formSubmitEvent => {
             name="password"
           />
 
-{/* 
-          <label>Cost</label>
+
+          {/* <label>Cost</label>
+
+         
+
 
 
           <div className="form-group">
@@ -179,25 +182,33 @@ handleFormSubmit = formSubmitEvent => {
           </div> */}
 
 
-
-{/* ////// /// /// /// /// CHECKBOX /// /// /// /// /// ///  */}  
-          
-          <label>Major</label>
+          <br />   
 
 
-          <div className="form-group">
-            <select multiple="true" name="major">
-              {majors.map(this.renderOptions)}
-            </select>
-          </div>
+          <label>States (select one or more)</label>
 
-  <br />      
-          <label>Location</label>
+
            <div className="form-group">
            <select multiple="true" name="location">
               {states.map(this.renderOptions)}
             </select> 
           </div>
+
+          <br /> 
+ 
+          
+          <label>Area of Study (select one)</label>
+
+
+          <div className="form-group">
+            <select name="major">
+              {majors.map(this.renderOptions)}
+            </select>
+          </div>
+
+          <br /> 
+
+  
        
 {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 

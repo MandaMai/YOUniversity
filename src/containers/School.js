@@ -4,7 +4,8 @@ import { SearchResults } from '../components/searchResults/SearchResults'
 
 const mapStateToProps = state => {
   return {
-    schools: state.schools
+    schools: state.schools,
+    user: state.user
   }
 }
 

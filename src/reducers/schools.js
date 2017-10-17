@@ -6,7 +6,12 @@ const characters = (state = {}, action) => {
       const nextState = _.merge({}, state);		
       nextState.schools = action.schools;		
       return nextState;		
-    }		
+    }	
+    case 'POST_USER': {
+      const nextState = _.merge({}, state);
+      nextState.user = action.user;
+      return nextState;
+  }	
     default:		
       return state		
   }		
