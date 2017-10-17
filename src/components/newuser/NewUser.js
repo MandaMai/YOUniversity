@@ -39,6 +39,7 @@ routeBacktoLanding() {
 }
 
 routetoDashboard() {
+  //Put login here
   browserHistory.push('/dashboard');
 }
 // onClick = { this.routetoDashboard.bind(this) } 
