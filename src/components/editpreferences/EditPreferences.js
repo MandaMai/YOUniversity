@@ -29,8 +29,12 @@ function FieldGroup({ id, label, help, ...props }) {
 
 class EditPreferences extends Component {
 
+  // routetoLanding(tempUser) {
+  //   browserHistory.push('/login');
+  // }
 
-  routetoDashboard() {
+
+  routetoDashboard(tempUser) {
     browserHistory.push('/dashboard');
   }
   // onClick = { this.routetoDashboard.bind(this) } 
@@ -86,6 +90,7 @@ class EditPreferences extends Component {
 
     //make the api call
     this.props.editUser(formData)
+    this.routetoDashboard(localStorage.getItem("currentUser"));
 
   }
 
