@@ -76,11 +76,7 @@ export class SearchResults extends Component {
   componentDidMount() {
     if(!this.data.length){
       // let's get preferences from user in state
-      if (this.props.user) {
-        let currentuser = this.props.user.user
-        console.log(`Here is  the current user:  ${JSON.stringify(this.props.user)}`)
-        //console.log("Here is  the current user: " + this.props.user.user["preferences.location"])
-      }
+      
       this.props.renderSchools()
     }
   }
@@ -96,6 +92,12 @@ export class SearchResults extends Component {
   }
  
   render() {
+
+    if (this.props.user) {
+      let currentuser = this.props.user
+      console.log(`Here is  the current user:  ${JSON.stringify(this.props)}`)
+      console.log("Here is  the current user: " + JSON.stringify(currentuser))
+    }
     const getDegree = {
       0: 'Non-Degree-Granting',
       1: 'Certificate',
@@ -151,12 +153,17 @@ export class SearchResults extends Component {
         }
       )
     
+      let punk = "eric";
+      if(this.props.user.user){
+        punk = this.props.user.user.firstName
+      }
 
     // return inside the if
     return (
       
       <div>
-        <BootstrapTable data={ this.data } selectRow={ selectRowProp } search exportCSV={ true } pagination striped>
+        {punk}
+        {/* <BootstrapTable data={ this.data } selectRow={ selectRowProp } search exportCSV={ true } pagination striped>
           {<TableHeaderColumn row='0' rowSpan='2' dataField='id' isKey={ true } width={'50'} dataFormat={this.internalLinkFormatter}></TableHeaderColumn>}
           <TableHeaderColumn row='0' colSpan='7'>Basic School Info</TableHeaderColumn>
           <TableHeaderColumn row='1' dataField='name' dataSort width={"300"} filter={ { type: 'TextFilter', delay: 400 } }>Name</TableHeaderColumn>
@@ -175,7 +182,7 @@ export class SearchResults extends Component {
           <TableHeaderColumn row='1' dataField='netCost' dataSort filter={ { type: 'NumberFilter', delay: 400, numberComparators: [ '=', '>', '<' ] } }
           dataFormat={ formatFloat }>Avg Net</TableHeaderColumn>
         </BootstrapTable>
-        <script src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.js" />
+        <script src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.js" /> */}
       </div>
 
     );

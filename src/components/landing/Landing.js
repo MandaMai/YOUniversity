@@ -48,10 +48,16 @@ class Landing extends Component {
     //make the api call
     this.props.loginUser(myJSON)
     console.log(localStorage.getItem("currentUser"))
-    this.routeDashboard(localStorage.getItem("currentUser"));
+    
+    // this.routeDashboard(localStorage.getItem("currentUser"));
     }
   
   render() {
+    if(this.props.user.user){
+      console.error("eric")
+      console.error(JSON.stringify(this.props.user.user))
+    }
+    
     return (
 
       <div>

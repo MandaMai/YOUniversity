@@ -1,7 +1,7 @@
 // reducer
 import _ from 'lodash';
 
-const characters = (state = {}, action) => {
+const login = (state = {}, action) => {
     switch (action.type) {
         case 'PUT_LOGIN': {
             const nextState = _.merge({}, state);
@@ -13,4 +13,4 @@ const characters = (state = {}, action) => {
     }
 }
 
-export default characters
+export default login

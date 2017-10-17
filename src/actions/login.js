@@ -19,7 +19,7 @@ export function putLogin(userData) {
           if(!error) {
             localStorage.setItem("currentUser", JSON.stringify(response.body))
             // console.log(localStorage.getItem("currentUser"))
-            dispatch({ type: `PUT_LOGIN`, user: response.body });
+            dispatch({ type: 'PUT_LOGIN', user: response.body });
           }
         }
       )
