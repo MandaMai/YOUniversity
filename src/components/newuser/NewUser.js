@@ -41,6 +41,7 @@ routeBacktoLanding() {
 routetoDashboard() {
   browserHistory.push('/dashboard');
 }
+// onClick = { this.routetoDashboard.bind(this) } 
 
 //method to render the option values for a dropdown
 //used for states, cost, and majors
@@ -166,7 +167,7 @@ handleFormSubmit = formSubmitEvent => {
             name="password"
           />
 
-
+{/* 
           <label>Cost</label>
 
 
@@ -174,7 +175,7 @@ handleFormSubmit = formSubmitEvent => {
             <select name="cost">
               {cost.map(this.renderOptions)}
             </select>
-          </div>
+          </div> */}
 
 
 
@@ -199,14 +200,14 @@ handleFormSubmit = formSubmitEvent => {
        
 {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 
-            <Button  className="btn btn-default"type="submit">Create Profile</Button>
+            <Button  className="btn btn-default" type="submit">Create Profile</Button>
 
 
  
 
         </form>
       </div>
-      </div>
+    </div>
 
 );
    

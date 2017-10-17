@@ -31,6 +31,9 @@ class CurrentPreferences extends Component {
 
                     <Col sm={12} md={6} lg={6} className="currentpreferences display">
                         <h2>Your current preferences:</h2>
+                        <h5>Cost: {this.currentUser.preferences.cost}</h5>
+                        <h5>State: {this.currentUser.preferences.state}</h5>
+                        <h5>Major: {this.currentUser.preferences.major}</h5>
                      
                     </Col>
 
