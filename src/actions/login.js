@@ -5,7 +5,7 @@ import request from 'superagent';
 const baseUrl = 'https://youniversity1.herokuapp.com/api/session/mine';
 
 export function putLogin(userData) {
-  console.log("Info from form: " + userData)
+  // console.log("Info from form: " + userData)
   //turn text to json here
 
   return dispatch => {
@@ -14,9 +14,10 @@ export function putLogin(userData) {
       .send(userData)
       .end(
         (error, response) => {
-          console.log(`Login response is: ${JSON.stringify(response)}`)
+          // console.log(`Login response is: ${JSON.stringify(response)}`)
           if(!error) {
             localStorage.setItem("currentUser", JSON.stringify(response.body))
+            // console.log(localStorage.getItem("currentUser"))
             dispatch({ type: `PUT_LOGIN`, user: response.body });
           }
         }
