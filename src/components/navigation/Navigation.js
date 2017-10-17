@@ -22,7 +22,7 @@ class Navigation extends Component {
                                 <li><Link to="/favorites">Favorites</Link></li>
                                 <li><Link to="/editpreferences">Edit Preferences</Link></li>
                                 <li><Link to="/schooldetails">School Details</Link></li>
-                                <li><Link to="/logout">Log Out</Link></li>
+                                <li><Link to="/#">Log Out</Link></li>
                             </ul>
                         </div>
                     </div>
