@@ -2,7 +2,8 @@
 import request from 'superagent';
 
 //added cors-anywhere to deal with the cors issues on your backend
-const baseUrl = 'https://youniversity1.herokuapp.com/api/session/mine';
+const baseUrl = 'https://cors-anywhere.herokuapp.com/https://youniversity1.herokuapp.com/api/session/mine';
+// const baseUrl = 'https://youniversity1.herokuapp.com/api/session/mine';
 
 export function putLogin(userData) {
   // console.log("Info from form: " + userData)
