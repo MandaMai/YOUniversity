@@ -22,10 +22,10 @@ class CurrentPreferences extends Component {
         tempName = this.currentUser.firstName;
         tempLocation = this.currentUser.location;
         tempMajor = this.currentUser.major;
-        console.log("Stuff in the favorites list: " + this.currentUser.schoolList.length);
-        console.log(tempName);
-        console.log(tempLocation);
-        console.log(tempMajor);
+        // console.log("Stuff in the favorites list: " + this.currentUser.schoolList.length);
+        // console.log(tempName);
+        // console.log(tempLocation);
+        // console.log(tempMajor);
         if(this.currentUser.schoolList.length>0){
             school1 = this.currentUser.schoolList.schools[0].schoolName;
             school2 = this.currentUser.schoolList.schools[1].schoolName;
