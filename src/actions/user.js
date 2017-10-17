@@ -36,4 +36,4 @@ export function postUser(dataToSend = {
 
 // reducer and container for amanda's app 
 
-// link what's in the state to the container componenewt
+// link what's in the state to the container componenent

@@ -3,21 +3,16 @@ import Navigation from '../navigation/Navigation';
 import { FormGroup, Button, FormControl, ControlLabel, HelpBlock, DropdownButton, MenuItem } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
-import Checkbox from '../checkbox/Checkbox'
+
 // import './Editpreferences.css';
 import { states, majors, cost } from '../newuser/NewUser'
 
 
 // import './NewUser.css';
 
-//model that represents data that is needed to create a user
 import { UserModel } from '../../models/UserModel'
 import { PreferencesModel } from '../../models/PreferencesModel'
 
-//since we have a model the represents the preferences that need to be set
-//for each user, I use object.keys to get the properties on the object as an array for when 
-//I need to check if the field i am working with belongs in preferences
-//see line 64
 const preferencesFields = Object.keys(new PreferencesModel);
 
 
@@ -35,39 +30,29 @@ function FieldGroup({ id, label, help, ...props }) {
 class EditPreferences extends Component {
 
 
-  routeBacktoLanding() {
-    browserHistory.push('/#');
-  }
-
   routetoDashboard() {
     browserHistory.push('/dashboard');
   }
   // onClick = { this.routetoDashboard.bind(this) } 
 
-  //method to render the option values for a dropdown
-  //used for states, cost, and majors
+
   renderOptions(value, key) {
     return <option key={key} value={value}>{value}</option>
   }
 
-  //method that runs when the form is submitted
+
   handleFormSubmit = formSubmitEvent => {
     formSubmitEvent.preventDefault();
 
-    //new UserModel object that we populate with the form data to make the api request
     let formData = new UserModel;
 
-    //looping over all the fields from the form and working with each one 
-    //the variable input represents the form field we are currently working with
+
     for (const input of formSubmitEvent.target) {
 
-      //lets skip this iteration of the loop if they field was left blank
       if (!input.value) {
         continue;
       }
 
-      //using a switch to handle building the data for majors and location properly.
-      //needs to be a comma separated string with all the selected values together
       switch (input.name) {
 
         case 'major':
@@ -80,16 +65,13 @@ class EditPreferences extends Component {
             }
           }
 
-          //get index of the last comma from the generated comma separated list
           let lastComma = value.lastIndexOf(',');
 
-          //set the matching property in formDate.preferences minus the last comma
           formData.preferences[input.name] = value.substring(0, lastComma);
           break;
 
         default:
-          //if the input field we are working with has a name that is in preferencesFields array
-          //lets make sure it gets put inside the preferences property of the UserModel
+
           if (preferencesFields.includes(input.name)) {
             formData.preferences[input.name] = input.value
           } else {
@@ -103,7 +85,7 @@ class EditPreferences extends Component {
     console.log(formData)
 
     //make the api call
-    this.props.createUser(formData)
+    this.props.editUser(formData)
 
   }
 

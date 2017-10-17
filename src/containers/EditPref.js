@@ -1,7 +1,7 @@
 // container
 import { connect } from 'react-redux'
 import { putUser } from '../actions/editpref'
-import NewUser from '../components/editpreferences/EditPreferences'
+import EditPreferences from '../components/editpreferences/EditPreferences'
 
 const mapStateToProps = state => {
     return {
@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createUser: (userData) => {
+        editUser: (userData) => {
             dispatch(putUser(userData))
         }
     }
