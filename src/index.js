@@ -17,7 +17,7 @@ import Dashboard from './components/dashboard/Dashboard'
 import EditPreferences from './components/editpreferences/EditPreferences'
 import UserFavorites from './components/userFavorites/UserFavorites'
 import User from './containers/User'
-import Landing from './components/landing/Landing'
+import Login from './containers/Login'
 
 import SchoolDetails from './components/schooldetails/Schooldetails'
 import NewUser from './components/newuser/NewUser'
@@ -40,7 +40,7 @@ ReactDOM.render(
         <Route path="/" component={App}>
           {/* <IndexRoute component={Character}/> */}
           <Route path="user" component={User} />
-          <IndexRoute component={Landing}/>
+          <IndexRoute component={Login}/>
           <Route path="dashboard" component={Dashboard}/>
           <Route path="editpreferences" component={EditPreferences} />
           <Route path="favorites" component={UserFavorites} />
