@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const User = connect(
+const EditPref = connect(
     mapStateToProps,
     mapDispatchToProps
 )(EditPreferences)
