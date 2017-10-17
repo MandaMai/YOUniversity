@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import Navigation from '../navigation/Navigation';
-import { FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { FormGroup, Button, FormControl, ControlLabel, HelpBlock, DropdownButton, MenuItem } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
-import Checkbox from '../checkbox/Checkbox'
+
 // import './Editpreferences.css';
 import { states, majors, cost } from '../newuser/NewUser'
 
 
-// const items = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"];
+// import './NewUser.css';
+
+import { UserModel } from '../../models/UserModel'
+import { PreferencesModel } from '../../models/PreferencesModel'
+
+const preferencesFields = Object.keys(new PreferencesModel);
+
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
-    
     <FormGroup controlId={id}>
       <ControlLabel>{label}</ControlLabel>
       <FormControl {...props} />
@@ -25,84 +30,129 @@ function FieldGroup({ id, label, help, ...props }) {
 class EditPreferences extends Component {
 
 
-  routeBacktoDashboard() {
+  routetoDashboard() {
     browserHistory.push('/dashboard');
   }
+  // onClick = { this.routetoDashboard.bind(this) } 
 
-  ////// /// /// /// /// CHECKBOX /// /// /// /// /// /// /// /// ///
-  componentWillMount = () => {
-    this.selectedCheckboxes = new Set();
+
+  renderOptions(value, key) {
+    return <option key={key} value={value}>{value}</option>
   }
 
-  toggleCheckbox = label => {
-    if (this.selectedCheckboxes.has(label)) {
-      this.selectedCheckboxes.delete(label);
-    } else {
-      this.selectedCheckboxes.add(label);
-    }
-  }
 
   handleFormSubmit = formSubmitEvent => {
     formSubmitEvent.preventDefault();
 
-    for (const checkbox of this.selectedCheckboxes) {
-      console.log(checkbox, 'is selected.');
+    let formData = new UserModel;
+
+
+    for (const input of formSubmitEvent.target) {
+
+      if (!input.value) {
+        continue;
+      }
+
+      switch (input.name) {
+
+        case 'major':
+        case "location":
+          var value = "";
+          for (var i = 0; i < input.length; i++) {
+            console.log(input.length)
+            if (input[i].selected) {
+              value += input[i].value + ","
+            }
+          }
+
+          let lastComma = value.lastIndexOf(',');
+
+          formData.preferences[input.name] = value.substring(0, lastComma);
+          break;
+
+        default:
+
+          if (preferencesFields.includes(input.name)) {
+            formData.preferences[input.name] = input.value
+          } else {
+            formData[input.name] = input.value
+          }
+
+      }
+
     }
+
+    console.log(formData)
+
+    //make the api call
+    this.props.editUser(formData)
+
   }
 
-  createCheckbox = label => (
-    <Checkbox
-      label={label}
-      handleCheckboxChange={this.toggleCheckbox}
-      key={label}
-    />
-  )
-
-  createCheckboxes = array => (
-    array.map(this.createCheckbox)
-  )
   /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// 
 
 
 
   render() {
+
+
+    // let statusMessage = (this.props.user.user) ? <div className='alert alert-success'>User Created Successfully</div> : "";
+
     return (
 
-  <div className="Wrapper">
-        <Navigation />
-        <Button onClick={this.routeBacktoDashboard.bind(this)} bsStyle="primary">Back</Button>
 
-      <div className="container">
-    
-        <form onSubmit={this.handleFormSubmit}>
-
-       <h1>Edit Preferences</h1>
-       <label>Majors</label>
-       <div className="form-group">
-         {this.createCheckboxes(majors)}
-       </div>
-
-       <label>Cost</label>
-       <div className="form-group">
-         {this.createCheckboxes(cost)}
-       </div>
-
-       <label>Location</label>
-       <div className="form-group">
-         {this.createCheckboxes(states)}
-       </div>
+      <div className="parentContainer">
+        <Button onClick={this.routetoDashboard.bind(this)} bsStyle="primary">Back</Button>
+        <div className="container">
 
 
+      
+          {/* {statusMessage} */}
 
-          <Button className="btn btn-default" type="submit">
-            Search
-          </Button>
-        </form>
+
+          <form onSubmit={this.handleFormSubmit}>
+
+
+            <h1>Edit Preferences</h1>
+
+           
+
+            <label>Major</label>
+
+
+            <div className="form-group">
+              <select multiple="true" name="major">
+                {majors.map(this.renderOptions)}
+              </select>
+            </div>
+
+            <br />
+            <label>Location</label>
+            <div className="form-group">
+              <select multiple="true" name="location">
+                {states.map(this.renderOptions)}
+              </select>
+            </div>
+
+        
+
+            <Button className="btn btn-default" type="submit">Update</Button>
+
+
+
+
+          </form>
+        </div>
       </div>
-      </div>
+
     );
+
   }
 }
+
+
+
+
 
 
 export default EditPreferences;

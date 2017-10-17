@@ -4,7 +4,7 @@ import request from 'superagent';
 //added cors-anywhere to deal with the cors issues on your backend
 const baseUrl = 'https://youniversity1.herokuapp.com/user';
 
-export function postUser(dataToSend = {
+export function putUser(dataToSend = {
   "firstName": "Harry",
   "lastName": "Potter",
   "password": "potter",
@@ -17,15 +17,15 @@ export function postUser(dataToSend = {
 }) {
 
   return dispatch => {
-    request.post(`${baseUrl}/create`)
+    request.put(`${baseUrl}`)
       .set('Content-Type', 'application/json')
       .send(dataToSend)
       .end(
         (error, response) => {
-          console.log(`User Create response is: ${JSON.stringify(response)}`)
+          console.log(`User Edit response is: ${JSON.stringify(response)}`)
           if(!error) {
             localStorage.setItem("currentUser", JSON.stringify(response.body))
-            dispatch({ type: `POST_USER`, user: response.body });
+            dispatch({ type: `PUT_USER`, user: response.body });
           }
         }
       )
