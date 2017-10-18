@@ -1,7 +1,7 @@
-/* form {
+#newuser{
     display: grid;
     padding: 1em;
-    background: #f9f9f9;
+    background: #9eccc6;
     border: 1px solid #c1c1c1;
     margin: 2rem auto 0 auto;
     max-width: 600px;
@@ -15,15 +15,16 @@ form input {
     width: 100%;
 }
 
-form button {
-    background: yellow;
+#subnewuser {
+    background: #47558b;
     padding: 0.7em;
     width: 100%;
     border: 0;
+    color: white;
 }
 
-form button:hover {
-    background: yellow;
+#subnewuser:hover {
+    background: #427982;
 }
 
 label {
@@ -41,4 +42,20 @@ input:focus {
     outline: 3px solid yellow;
     width: 100%;
 }
- */
+
+/* #bs-example-navbar-collapse-1 {
+    background-color: 203e88;
+    color: f6cc45;
+} */
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+th, tr {
+    width: 50%;
+}
+
+h4 {
+    background-color: 
+}

@@ -26,7 +26,7 @@ export class LandingNavigation extends Component {
           </Navbar.Form>
           {' '}
           {' '}
-          <Button bsStyle="primary">Create Account</Button>
+          <Button bsStyle="primary" id="createuserbutton">Create Account</Button>
         </Navbar.Collapse>
       </Navbar>
     );
