@@ -15,3 +15,48 @@
     margin-left: 100px;
     margin-top: 10px;
 }
+
+#loginbutton {
+    background: #47558b;
+    color: white;
+}
+
+#loginbutton:hover {
+    background: #427982;
+}
+
+#createnew {
+    background: #47558b;
+    color: white;
+}
+
+#createnew:hover {
+    background: #427982;
+}
+
+label {
+    padding: 0.5em 0.5em 0.5em 0;
+}
+
+
+form input {
+    background: #fff;
+    border: 1px solid #9c9c9c;
+    width: 100%;
+}
+
+input {
+    padding: 0.7em;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+input:focus {
+    outline: 3px solid yellow;
+    width: 100%;
+}
+
+#navform {
+    margin-left: 10px;
+    margin-right: 10px;
+}

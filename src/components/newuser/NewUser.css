@@ -45,14 +45,9 @@ input {
 }
 
 input:focus {
-    outline: 3px solid green;
+    outline: 3px solid yellow;
     width: 100%;
 }
-
-/* #bs-example-navbar-collapse-1 {
-    background-color: 203e88;
-    color: f6cc45;
-} */
 
 table.center {
     margin-left: auto;
@@ -61,8 +56,4 @@ table.center {
 th, tr {
     width: 50%;
 }
-/* 
-h4 {
-    background-color: 
-} */
 
