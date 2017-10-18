@@ -34,7 +34,7 @@ class Collegecarousel extends Component {
                     <h1>YOUniversity</h1>
                     {/* <h2>Empowering you to find your DREAM School</h2>
                     <h2>Login or create your new user account and.....</h2> */}
-                    <h2><i>Your Academic Adventure Starts here</i></h2>
+                    <h2><i>Your Academic Adventure Starts Here</i></h2>
                 </Carousel.Caption>
             </Carousel.Item>
             {/* <Carousel.Item>
