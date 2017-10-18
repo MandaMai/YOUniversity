@@ -13,10 +13,10 @@ class Dashboard extends Component {
     return (
       <div>
         
-        <Navigation />
-       <CurrentPreferences />
+        <div><Navigation /></div>
+       <div><CurrentPreferences /></div>
         {/* <SearchResults /> */}
-        <Schools />
+        <div><Schools /></div>
 
       </div>
     );

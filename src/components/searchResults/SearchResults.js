@@ -3,7 +3,11 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import './SearchResults.css'
 import { Link } from 'react-router';
+import { SchoolModel } from '../../models/SchoolModel'
+import { addFavorites} from '../../actions/favoriteSchool'
+// import { CurrentPreferences } from 
 let order = 'desc';
+
 
 // const products = [];
 
@@ -25,13 +29,41 @@ let order = 'desc';
 
 function onRowSelect(row, isSelected, e, rowIndex) {
   let rowStr = '';
+  let schoolInfo = new SchoolModel;
+  
   for (const prop in row) {
     rowStr += prop + ': "' + row[prop] + '"';
+    switch(prop){
+      
+              case 'id': {schoolInfo.schoolApiId = row[prop] } break;
+              case 'name':{schoolInfo.schoolName = row[prop]} break;
+              case 'netCost':{schoolInfo.avgNet = row[prop]} break;
+              case 'inState':{schoolInfo.inState = row[prop]} break;
+              case 'outState':{schoolInfo.outState = row[prop]} break;
+              case 'location':{schoolInfo.schoolLocation = row[prop]} break;
+              case 'size':{schoolInfo.size = row[prop]} break;
+              case 'state':{schoolInfo.state = row[prop]} break;
+              case 'admission':{schoolInfo.admission = row[prop]} break;
+              case 'ownership':{schoolInfo.ownership = row[prop]} break;
+              case 'highestDegree':{schoolInfo.highestDegree = row[prop]} break;
+              case 'schoolUrl':{schoolInfo.schoolUrl = row[prop]} break;
+              case 'comment':{schoolInfo.comment = row[prop]} break;
+              case 'rank':{schoolInfo.rank = row[prop]} break;
+          }
   }
+  console.log("eric")
+  console.log(schoolInfo)
+  let myJSON = JSON.stringify(schoolInfo);
+  console.log(myJSON);
+  addFavorites(myJSON);
   console.log(e);
-  alert(`Selected: ${isSelected}, rowIndex: ${rowIndex}, row: ${rowStr}`);
-  alert("This is where the school needs to be added to the list");
+  console.log("maybe this worked?")
+  //alert(`Selected: ${isSelected}, rowIndex: ${rowIndex}, row: ${rowStr}`);
+ //add to SchoolModel here
+ //getFavorites() or reload preferences
 }
+
+
 
 function onSelectAll(isSelected, rows) {
   alert(`is select all: ${isSelected}`);
@@ -78,7 +110,7 @@ export class SearchResults extends Component {
       // let's get preferences from user in state
       if (this.props.user) {
         let currentuser = this.props.user.user
-        console.log(`Here is  the current user:  ${JSON.stringify(this.props.user)}`)
+        //console.log(`Here is  the current user:  ${JSON.stringify(this.props.user)}`)
         //console.log("Here is  the current user: " + this.props.user.user["preferences.location"])
       }
       this.props.renderSchools()
@@ -86,12 +118,12 @@ export class SearchResults extends Component {
   }
 
   linkFormatter(cell, row) {
-    console.log(cell)
+    //console.log(cell)
     return '<a href="http://'+cell+'" target="_blank">'+cell+'</a>';
   }
 
   internalLinkFormatter(cell, row) {
-    console.log(cell)
+    //console.log(cell)
     return '<a href=schooldetails/'+cell+' target="_blank">Details</a>';
   }
  
