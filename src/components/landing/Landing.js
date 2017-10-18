@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Button, FormControl, ControlLabel, HelpBlock, Link } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 import Collegecarousel from '../collegecarousel/Collegecarousel';
+import PasswordMask from 'react-password-mask';
 
 import './Landing.css'
 import {LoginModel} from '../../models/LoginModel'
@@ -57,16 +58,18 @@ class Landing extends Component {
       <div>
         <div className="login-container">
           <Form inline onSubmit={this.handleFormSubmit}>
+
+          
           <FormGroup controlId="userName" className="login-form">
             <ControlLabel>Email/ID</ControlLabel>
             {' '}
             <FormControl name="username" type="email" placeholder="Jane.Doe@test.com" />
           </FormGroup>
           {' '}
-          <FormGroup controlId="password" className="login-form">
+          <FormGroup type="password" controlId="password" className="login-form">
             <ControlLabel>Password</ControlLabel>
             {' '}
-            <FormControl name="password" type="text" placeholder="password" />
+            <FormControl name="password" type="text" placeholder="password" type="password"/>
           </FormGroup>
           {' '}
           <Button className="btn btn-default login-form"type="submit">
@@ -77,9 +80,13 @@ class Landing extends Component {
         </div>
 
         <Collegecarousel />
+
+
       </div>
     );
   }
 }
+
+
 
 export default Landing;
