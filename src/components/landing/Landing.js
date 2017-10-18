@@ -57,25 +57,25 @@ class Landing extends Component {
 
       <div>
         <div className="login-container">
-          <Form inline onSubmit={this.handleFormSubmit}>
+          <Form inline onSubmit={this.handleFormSubmit} id="navform">
 
           
           <FormGroup controlId="userName" className="login-form">
-            <ControlLabel>Email/ID</ControlLabel>
+            <ControlLabel className="navlabel">Email/ID</ControlLabel>
             {' '}
             <FormControl name="username" type="email" placeholder="Jane.Doe@test.com" />
           </FormGroup>
           {' '}
           <FormGroup type="password" controlId="password" className="login-form">
-            <ControlLabel>Password</ControlLabel>
+            <ControlLabel className="navlabel">Password</ControlLabel>
             {' '}
             <FormControl name="password" type="text" placeholder="password" type="password"/>
           </FormGroup>
           {' '}
-          <Button className="btn btn-default login-form"type="submit">
+          <Button className="btn btn-default login-form"type="submit" id="loginbutton">
             Login
           </Button>
-          <Button onClick={this.routeNewUser.bind(this)} className="new-account" bsStyle="success">Create New User Account</Button>
+          <Button onClick={this.routeNewUser.bind(this)} id="createnew" className="new-account pull-right" bsStyle="success">Create New User Account</Button>
         </Form>
         </div>
 

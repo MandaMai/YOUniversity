@@ -12,7 +12,7 @@
 
 .dashboardheader-container {
     width: 95%;
-    color: rgb(73, 4, 4);
+    color: #f6cc45;
     margin: 3%;
     height: auto;
     border-radius: 25px;
@@ -20,7 +20,7 @@
 
 .dashboardheading {
     text-align: center;
-    background-color: rgb(75, 71, 71);
+    background-color: #203e88;
     height: auto;
     width: 100%;
    
@@ -30,7 +30,8 @@
 .display {
     height: 200px;
     text-align: center;
-    background-color: rgb(99, 99, 99);
+    background-color: #9eccc6;
+    color: #203e88;
     
 }
 
