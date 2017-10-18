@@ -130,7 +130,7 @@ handleFormSubmit = formSubmitEvent => {
       {statusMessage}
     
     
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit} id="newuser">
  
 
           <h1>New User Profile</h1>
@@ -169,51 +169,39 @@ handleFormSubmit = formSubmitEvent => {
             name="password"
           />
 
-
-          {/* <label>Cost</label>
-
-         
-
-
-
-          <div className="form-group">
-            <select name="cost">
-              {cost.map(this.renderOptions)}
-            </select>
-          </div> */}
-
-
-          <br />   
-
-
-          <label>States (select one or more)</label>
-
-
-           <div className="form-group">
-           <select multiple="true" name="location">
-              {states.map(this.renderOptions)}
-            </select> 
-          </div>
-
-          <br /> 
- 
-          
-          <label>Area of Study (select one)</label>
-
-
-          <div className="form-group">
-            <select name="major">
-              {majors.map(this.renderOptions)}
-            </select>
-          </div>
-
           <br /> 
 
-  
+          <label><h4>Preferences</h4> </label>
+
+          <table className="center">
+            <tr>
+                <th><label>States (select one or more)</label></th>
+                <th><label>Area of Study (select one)</label></th>
+            </tr>
+            <tr>
+              <td>
+                <div className="form-group">
+                <select multiple="true" name="location">
+                    {states.map(this.renderOptions)}
+                  </select> 
+                </div>          
+                 <br /> 
+              </td>
+
+              <td>     
+                <div className="form-group">
+                  <select name="major">
+                    {majors.map(this.renderOptions)}
+                  </select>
+                </div>
+              </td>
+              <br /> 
+              </tr>
+  </table>
        
 {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
 
-            <Button  className="btn btn-default" type="submit">Create Profile</Button>
+            <Button  className="btn btn-default" type="submit" id="subnewuser">Create Profile</Button>
 
 
  

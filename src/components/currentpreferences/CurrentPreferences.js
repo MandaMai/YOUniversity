@@ -52,7 +52,7 @@ class CurrentPreferences extends Component {
 
 
         return  (
-                   <div>
+                   <div id="wrapper">
              
                 < div className = "dashboardheader-container" >
                     <Col sm={12} md={12} lg={12} className="dashboardheading">
@@ -64,18 +64,19 @@ class CurrentPreferences extends Component {
                     </Col>
 
                     <Col sm={12} md={6} lg={6} className="currentpreferences display">
-                        <h2>Your current preferences:</h2>
-                        <h5>State:  {this.currentUser.preferences.location}</h5>
-                        <h5>Major:  {this.currentUser.preferences.major}</h5>
+                        <h2>Your Current Preferences:</h2>
+                        <h5></h5>
+                        <h4><b>State: </b> {this.currentUser.preferences.location}</h4>
+                        <h4><b>Major: </b> {this.currentUser.preferences.major}</h4>
                      
                     </Col>
 
                     <Col sm={12} md={6} lg={6} className="favorites display">
                         <h2>Favorites List:</h2>
                         
-                        <h5>{school1}</h5>
-                        <h5>{school2}</h5>
-                        <h5>{school3}</h5>
+                        <h4>{school1}</h4>
+                        <h4>{school2}</h4>
+                        <h4>{school3}</h4>
                         
                     </Col>
                     <Col sm={12} md={6} lg={6} className="padding">
