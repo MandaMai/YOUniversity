@@ -61,13 +61,13 @@ class Landing extends Component {
 
           
           <FormGroup controlId="userName" className="login-form">
-            <ControlLabel>Email/ID</ControlLabel>
+            <ControlLabel className="navlabel">Email/ID</ControlLabel>
             {' '}
             <FormControl name="username" type="email" placeholder="Jane.Doe@test.com" />
           </FormGroup>
           {' '}
           <FormGroup type="password" controlId="password" className="login-form">
-            <ControlLabel>Password</ControlLabel>
+            <ControlLabel className="navlabel">Password</ControlLabel>
             {' '}
             <FormControl name="password" type="text" placeholder="password" type="password"/>
           </FormGroup>
