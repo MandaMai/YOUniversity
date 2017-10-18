@@ -1,4 +1,4 @@
-#newuser{
+#newuser {
     display: grid;
     padding: 1em;
     background: #9eccc6;
@@ -6,7 +6,7 @@
     margin: 2rem auto 0 auto;
     max-width: 600px;
     padding: 1em;
-    
+  
 }
 
 form input {
@@ -14,13 +14,15 @@ form input {
     border: 1px solid #9c9c9c;
     width: 100%;
 }
+
 #backbutton {
     background: #47558b;
-      
 }
+
 #backbutton:hover {
     background: #427982;
 }
+
 #subnewuser {
     background: #47558b;
     padding: 0.7em;
@@ -35,7 +37,6 @@ form input {
 
 label {
     padding: 0.5em 0.5em 0.5em 0;
-    
 }
 
 input {
@@ -49,6 +50,7 @@ input:focus {
     width: 100%;
 }
 
+
 /* #bs-example-navbar-collapse-1 {
     background-color: 203e88;
     color: f6cc45;
@@ -58,11 +60,14 @@ table.center {
     margin-left: auto;
     margin-right: auto;
 }
-th, tr {
+
+th,
+tr {
     width: 50%;
 }
+
+
 /* 
 h4 {
     background-color: 
 } */
-
