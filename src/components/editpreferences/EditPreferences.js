@@ -7,7 +7,7 @@ import { browserHistory } from 'react-router';
 // import './Editpreferences.css';
 import { states, majors, cost } from '../newuser/NewUser'
 
-
+import './EditPreferences.css';
 // import './NewUser.css';
 
 import { UserModel } from '../../models/UserModel'
@@ -107,7 +107,7 @@ class EditPreferences extends Component {
 
 
       <div className="parentContainer">
-        <Button onClick={this.routetoDashboard.bind(this)} bsStyle="primary">Back</Button>
+        <Button className="pull-right" onClick={this.routetoDashboard.bind(this)} bsStyle="primary" id="backbutton">Back</Button>
         <div className="container">
 
 
@@ -115,33 +115,46 @@ class EditPreferences extends Component {
           {/* {statusMessage} */}
 
 
-          <form onSubmit={this.handleFormSubmit}>
+          <form onSubmit={this.handleFormSubmit} id="newuser">
 
 
             <h1>Edit Preferences</h1>
 
            
 
-            <label>Major</label>
 
 
-            <div className="form-group">
-              <select multiple="true" name="major">
-                {majors.map(this.renderOptions)}
-              </select>
-            </div>
+            <label><h4>Preferences</h4></label>
 
-            <br />
-            <label>Location</label>
-            <div className="form-group">
-              <select multiple="true" name="location">
-                {states.map(this.renderOptions)}
-              </select>
-            </div>
+            <table className="center">
+              <tr>
+                <th><label>States (select one or more)</label></th>
+                <th><label>Area of Study (select one)</label></th>
+              </tr>
+              <tr>
+                <td>
+                  <div className="form-group">
+                    <select multiple="true" name="location">
+                      {states.map(this.renderOptions)}
+                    </select>
+                  </div>
+                  <br />
+                </td>
 
-        
+                <td>
+                  <div className="form-group">
+                    <select name="major">
+                      {majors.map(this.renderOptions)}
+                    </select>
+                  </div>
+                </td>
+                <br />
+              </tr>
+            </table>
 
-            <Button className="btn btn-default" type="submit">Update</Button>
+            {/* ////// /// /// /// ///  /// /// /// /// /// /// /// /// */}
+
+            <Button className="btn btn-default" type="submit" id="subnewuser">Create Profile</Button>
 
 
 

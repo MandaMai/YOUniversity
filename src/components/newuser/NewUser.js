@@ -122,7 +122,7 @@ handleFormSubmit = formSubmitEvent => {
 
 
       <div className = "parentContainer">
-      <Button onClick={this.routeBacktoLanding.bind(this)} bsStyle="primary">Back</Button>
+        <Button className="pull-right" onClick={this.routeBacktoLanding.bind(this)} bsStyle="primary" id="backbutton">Back</Button>
       <div className="container">
       
 
